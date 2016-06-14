@@ -32,7 +32,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        local:MvxBind="Text Test" />
+        local:MvxBind="Text ErrorMessage" />
     <Button
         android:text="@string/button_ok"
         android:layout_width="match_parent"

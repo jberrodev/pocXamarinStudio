@@ -16,8 +16,23 @@ namespace PocAlim.ViewModels
 
         public override void Start()
         {
-            base.Start();
+			_filterProximiteIsChecked = true;
+			_filterRestaurantIsChecked = true;
+			_filterSupermarcheIsChecked = true;
+			_filterTransformationIsChecked = true;
+
+			Recalculate ();
+
+			base.Start();
         }
+
+		private string _errorMessage;
+
+		public String ErrorMessage
+		{
+			get { return _errorMessage; }
+			set { _errorMessage = value; RaisePropertyChanged(() => ErrorMessage); }
+		}
 
         private List<string> _paramFiltre;
 
@@ -59,20 +74,26 @@ namespace PocAlim.ViewModels
         //On recharge les POI
         //en fonction des checkboxes
         private void Recalculate()
-        {
+        { 
             ParameterFiltre = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
-        }
+			ErrorMessage = ParameterFiltre.Count.ToString ();
+		}
+			
 
+		public ICommand SendFiltre
+		{
+			get 
+			{
+				return new MvxCommand (FunctionSend);
+			}		
+		}
 
-        public ICommand SendFiltre
-        {
-            get {
-				return new MvxCommand (() => ShowViewModel<FillingListOfMyPOIViewModel> (new { param = ParameterFiltre.Count.ToString() }));
-			}
-
-        }
-
-        public ICommand GoBack
+		public void FunctionSend(){
+			if(ParameterFiltre.Count != 0)
+				ShowViewModel<FillingListOfMyPOIViewModel> (new { param = ParameterFiltre.Count.ToString () });
+		}
+       
+		public ICommand GoBack
         {
             get
             {

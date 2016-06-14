@@ -126,7 +126,7 @@ namespace PocAlim.ViewModels
 
 		public void Init(string param)
 		{
-			Filtre = param;
+			_filtre = param;
 		}
 
         
