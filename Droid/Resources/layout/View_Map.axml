@@ -26,6 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/textView1"
-            local:MvxBind="Text Filtre" />
+            local:MvxBind="Text Temoin" />
     </FrameLayout>
 </FrameLayout>

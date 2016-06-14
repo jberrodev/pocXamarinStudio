@@ -34,9 +34,9 @@ namespace PocAlim.ViewModels
 			set { _errorMessage = value; RaisePropertyChanged(() => ErrorMessage); }
 		}
 
-        private List<string> _paramFiltre;
+        private String _paramFiltre;
 
-        public List<string> ParameterFiltre
+		public String ParameterFiltre
         {
             get { return _paramFiltre; }
             set { _paramFiltre = value; RaisePropertyChanged(() => ParameterFiltre); }
@@ -47,28 +47,45 @@ namespace PocAlim.ViewModels
         public Boolean FilterRestaurantIsChecked
         {
             get { return _filterRestaurantIsChecked; }
-            set { _filterRestaurantIsChecked = value; RaisePropertyChanged(() => FilterRestaurantIsChecked); Recalculate(); }
+			set {
+				_filterRestaurantIsChecked = value;
+				RaisePropertyChanged (() => FilterRestaurantIsChecked);
+				Recalculate();
+			}
         }
         private bool _filterProximiteIsChecked;
 
         public Boolean FilterProximiteIsChecked
         {
             get { return _filterProximiteIsChecked; }
-            set { _filterProximiteIsChecked = value; RaisePropertyChanged(() => FilterProximiteIsChecked); Recalculate(); }
+			set {
+				_filterProximiteIsChecked = value;
+				RaisePropertyChanged (() => FilterProximiteIsChecked);
+				Recalculate();
+
+			}
         }
         private bool _filterTransformationIsChecked;
 
         public Boolean FilterTransformationIsChecked
         {
             get { return _filterTransformationIsChecked; }
-            set { _filterTransformationIsChecked = value; RaisePropertyChanged(() => FilterTransformationIsChecked); Recalculate(); }
+			set {
+				_filterTransformationIsChecked = value;
+				RaisePropertyChanged (() => FilterTransformationIsChecked);
+				Recalculate();
+			}
         }
         private bool _filterSupermarcheIsChecked;
 
         public Boolean FilterSupermarcheIsChecked
         {
             get { return _filterSupermarcheIsChecked; }
-            set { _filterSupermarcheIsChecked = value; RaisePropertyChanged(() => FilterSupermarcheIsChecked); Recalculate(); }
+			set {
+				_filterSupermarcheIsChecked = value;
+				RaisePropertyChanged (() => FilterSupermarcheIsChecked);
+				Recalculate();
+			}
         }
 
         //On recharge les POI
@@ -76,7 +93,6 @@ namespace PocAlim.ViewModels
         private void Recalculate()
         { 
             ParameterFiltre = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
-			ErrorMessage = ParameterFiltre.Count.ToString ();
 		}
 			
 
@@ -89,8 +105,8 @@ namespace PocAlim.ViewModels
 		}
 
 		public void FunctionSend(){
-			if(ParameterFiltre.Count != 0)
-				ShowViewModel<FillingListOfMyPOIViewModel> (new { param = ParameterFiltre.Count.ToString () });
+			if(ParameterFiltre.Length != 0)
+				ShowViewModel<FillingListOfMyPOIViewModel> (new { filtreToPass = ParameterFiltre});
 		}
        
 		public ICommand GoBack

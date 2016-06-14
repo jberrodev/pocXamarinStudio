@@ -59,6 +59,24 @@ namespace PocAlim.ViewModels
                 ""adresse"": ""123 Avenue d'autre part, 92130 Issy Les Moulineaux"",
                 ""note"": ""3"",
                 ""inspection"": ""01/01/2016""
+            },
+  			{
+                 ""nom"": ""Hello mon ami"",
+                ""lattitude"": ""48.826551"",
+                ""longitude"": ""2.257548"",
+                ""type"": ""Transformation"",
+                ""adresse"": ""t'aime ca manger des papates"",
+                ""note"": ""1"",
+                ""inspection"": ""01/01/2016""
+            },
+			{
+                 ""nom"": ""Dr pepper"",
+                ""lattitude"": ""48.822913"",
+                ""longitude"": ""2.260731"",
+                ""type"": ""Transformation"",
+                ""adresse"": ""moi non"",
+                ""note"": ""1"",
+                ""inspection"": ""01/01/2016""
             }
 
         ]
@@ -116,17 +134,25 @@ namespace PocAlim.ViewModels
             }
         }
 
-		private string _filtre;
+		private String[] _filtre;
 
-		public String Filtre
+		public String[] Filtre
 		{
 			get { return _filtre; }
 			set { _filtre = value; RaisePropertyChanged(() => Filtre); }
 		}
 
-		public void Init(string param)
+		private string _temoin;
+
+		public String Temoin
 		{
-			_filtre = param;
+			get { return _temoin; }
+			set { _temoin = value; RaisePropertyChanged(() => Temoin); }
+		}
+
+		public void Init(string filtreToPass)
+		{
+			_temoin = filtreToPass;
 		}
 
         

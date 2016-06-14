@@ -122,7 +122,6 @@
     <AndroidResource Include="Resources\layout\View_Map.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\drawable\bubble_info.png" />
     <AndroidResource Include="Resources\drawable\checkbox_selector.xml" />
     <AndroidResource Include="Resources\drawable\pin_proximite.png" />
     <AndroidResource Include="Resources\drawable\pin_restaurant.png" />
@@ -130,6 +129,7 @@
     <AndroidResource Include="Resources\drawable\pin_transformation.png" />
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\bubble_info.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />
