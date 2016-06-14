@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="map_key">AIzaSyClWnAidogSdOwKBJDtBIyPiPYLcK7RQlc</string>
+  <string name="app_name">POC MVVM ALIM</string>
+  <string name="filter_button_text">FILTRER</string>
+  <string name="filter_1">Restaurant</string>
+  <string name="filter_2">Proximite</string>
+  <string name="filter_3">Transformation</string>
+  <string name="filter_4">Supermarche</string>
+  <string name="button_ok">OK</string>
+  <string name="button_cancel">ANNULER</string>
+
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <CheckBox
+        android:text="@string/filter_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter1"
+        local:MvxBind="Checked FilterRestaurantIsChecked" />
+    <CheckBox
+        android:text="@string/filter_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter2"
+        local:MvxBind="Checked FilterProximiteIsChecked" />
+    <CheckBox
+        android:text="@string/filter_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter3"
+        local:MvxBind="Checked FilterTransformationIsChecked" />
+    <CheckBox
+        android:text="@string/filter_4"
+        android:layout_width="match_parent"
+        android:button="@drawable/checkbox_selector"
+        android:layout_height="wrap_content"
+        android:id="@+id/filter4"
+        local:MvxBind="Checked FilterSupermarcheIsChecked" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text Test" />
+    <Button
+        android:text="@string/button_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FilterOkBtn"
+        local:MvxBind="Click SendFiltre" />
+    <Button
+        android:text="@string/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FiltreCloseBtn"
+        local:MvxBind="Click GoBack" />
+</LinearLayout>

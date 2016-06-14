@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment"
+        local:MvxBind="Click GoPopup" />
+    <FrameLayout
+        android:id="@+id/myLayout"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <Button
+            android:text="@string/filter_button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FiltreBtn"
+            android:layout_gravity="center_horizontal"
+            local:MvxBind="Click GoPopupFiltre" />
+        <TextView
+            android:text="Large Text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/textView1"
+            local:MvxBind="Text Temoin" />
+    </FrameLayout>
+</FrameLayout>

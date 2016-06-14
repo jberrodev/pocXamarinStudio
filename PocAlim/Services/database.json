@@ -1,0 +1,18 @@
+﻿[
+  {
+    "nom": "Sogeti France",
+    "lattitude": "48.826870",
+    "longitude": "2.271165",
+    "adresse": "22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux",
+    "note": "5",
+    "inspection": "01/01/2015"
+  },
+  {
+    "nom": "Quelque part",
+    "lattitude": "48.831165",
+    "longitude": "2.254237",
+    "adresse": "18, Rue du Test, 92100 Boulogne-Billancourt",
+    "note": "3",
+    "inspection": "01/01/2016"
+  }
+]
