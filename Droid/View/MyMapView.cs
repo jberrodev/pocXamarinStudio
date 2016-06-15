@@ -194,13 +194,13 @@ namespace PocAlim.Droid.View
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
                     option.SetTitle(marker.Nom);
                     if (marker.Type.Contains("Restauration Collective"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_restauration_collective));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_restauration_collective));
                     if (marker.Type.Contains("Alimentation Generale"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_alimentation_generale));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_alimentation_generale));
                     if (marker.Type.Contains("Supermarches Hypermarches"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_supermarches_hypermarches));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_supermarches_hypermarches));
                     if (marker.Type.Contains("Charcuteries"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.pin_charcuteries));
+                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_charcuteries));
 
                     if (_gMap != null)
                         _marker = _gMap.AddMarker(option);

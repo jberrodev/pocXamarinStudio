@@ -122,14 +122,21 @@
     <AndroidResource Include="Resources\layout\View_Map.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\drawable\checkbox_selector.xml" />
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
     <AndroidResource Include="Resources\drawable\bubble_info.png" />
-    <AndroidResource Include="Resources\drawable\pin_supermarches_hypermarches.png" />
-    <AndroidResource Include="Resources\drawable\pin_alimentation_generale.png" />
-    <AndroidResource Include="Resources\drawable\pin_restauration_collective" />
+    <AndroidResource Include="Resources\drawable\checkbox_supermarches.xml" />
+    <AndroidResource Include="Resources\drawable\checkbox_restauration_collective.xml" />
+    <AndroidResource Include="Resources\drawable\checkbox_alimentation_generale.xml" />
+    <AndroidResource Include="Resources\drawable\checkbox_charcuteries.xml" />
     <AndroidResource Include="Resources\drawable\pin_charcuteries.png" />
+    <AndroidResource Include="Resources\drawable\marker_restauration_collective.png" />
+    <AndroidResource Include="Resources\drawable\marker_alimentation_generale.png" />
+    <AndroidResource Include="Resources\drawable\marker_supermarches_hypermarches.png" />
+    <AndroidResource Include="Resources\drawable\pin_alimentation_generale.png" />
+    <AndroidResource Include="Resources\drawable\pin_restauration_collective.png" />
+    <AndroidResource Include="Resources\drawable\pin_supermarches_hypermarches.png" />
+    <AndroidResource Include="Resources\drawable\marker_charcuteries.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

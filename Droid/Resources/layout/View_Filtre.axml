@@ -8,25 +8,36 @@
         android:text="@string/filter_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:button="@null"
+        android:drawableTop="@drawable/checkbox_restauration_collective"
         android:id="@+id/filter1"
         local:MvxBind="Checked FilterRestaurationCollectiveIsChecked" />
     <CheckBox
         android:text="@string/filter_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:button="@null"
+        android:drawableTop="@drawable/checkbox_alimentation_generale"
         android:id="@+id/filter2"
         local:MvxBind="Checked FilterAlimentationGeneraleIsChecked" />
     <CheckBox
         android:text="@string/filter_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:button="@null"
+        android:drawableTop="@drawable/checkbox_charcuteries"
         android:id="@+id/filter3"
         local:MvxBind="Checked FilterCharcuteriesIsChecked" />
     <CheckBox
         android:text="@string/filter_4"
         android:layout_width="match_parent"
-        android:button="@drawable/checkbox_selector"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:button="@null"
+        android:drawableTop="@drawable/checkbox_supermarches"
         android:id="@+id/filter4"
         local:MvxBind="Checked FilterSupermarchesHypermarchesIsChecked" />
     <TextView
