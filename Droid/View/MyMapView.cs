@@ -188,7 +188,7 @@ namespace PocAlim.Droid.View
         //et ajout des markers à la map
         public void addMarkers()
         {
-                foreach (MyPOI marker in ViewModel.MarkerList)
+                foreach (MyPOI marker in ViewModel.MarkerListFiltre)
                 {
                     var option = new MarkerOptions();
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));

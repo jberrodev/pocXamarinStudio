@@ -16,11 +16,11 @@ namespace PocAlim.Services
             if (filtreRestaurantIsChecked)
 				list += "Restaurant,";
             if (filtreProximiteIsChecked)
-				list +="Proximité,";
+				list +="Proximite,";
             if (filtreTransformationIsChecked)
 				list+="Transformation,";
             if (filtreSupermarcheIsChecked)
-				list+="Supermarché,";
+				list+="Supermarche,";
 
             return list;
 

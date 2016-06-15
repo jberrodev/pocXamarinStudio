@@ -13,6 +13,7 @@ namespace PocAlim.ViewModels
 {
     public class FillingListOfMyPOIViewModel : MvxViewModel
     {
+		//Liste chargée depuis le Json
         private List<MyPOI> _markerslist;
 
         public List<MyPOI> MarkerList
@@ -21,6 +22,34 @@ namespace PocAlim.ViewModels
             set { _markerslist = value; RaisePropertyChanged(() => MarkerList); }
         }
 
+		//Liste filtrée et utilisée par les view
+		private List<MyPOI> _markersListFiltre;
+
+		public List<MyPOI> MarkerListFiltre
+		{
+			get { return _markersListFiltre; }
+			set { _markersListFiltre = value; RaisePropertyChanged(() => MarkerListFiltre); }
+		}
+
+		//Valeur des filtres reçus FilterViewModel
+		private string[] _filtre;
+
+		public String[] Filtre
+		{
+			get { return _filtre; }
+			set { _filtre = value; RaisePropertyChanged(() => Filtre); }
+		}
+
+		//Temoin d'affichage #debugging
+		private string _temoin;
+
+		public String Temoin
+		{
+			get { return _temoin; }
+			set { _temoin = value; RaisePropertyChanged(() => Temoin); }
+		}
+
+		//Liste de POi à remplacer par un Json local 
         string jsonString2 = @"
     {
         ""data"": [
@@ -81,16 +110,26 @@ namespace PocAlim.ViewModels
 
         ]
     }";
-
+		//Au lancement du modelView...
         public override void Start()
         {
             _markerslist = new List<MyPOI>();
-            //On parcours le résultat en remplissant la liste
+			_markersListFiltre = new List<MyPOI>();
 
+            //On parcours le résultat en remplissant la liste
             //de Markers qui sera utilisée par les couches natives
             loadJson();
 
-            base.Start();
+			//On définit MarkerListFiltre en fonction des filtres
+			if (Filtre != null) {
+				checkFilters();
+			}
+			//Sans filtre elle prend la valeur de MarkerList
+			 else {
+				_markersListFiltre = MarkerList;
+			}
+			 
+			base.Start();
         }
 
         //On parcours le résultat en remplissant la liste
@@ -126,6 +165,7 @@ namespace PocAlim.ViewModels
                 }
             }
 
+		//Lancement du l'écran de filtrage
         public ICommand GoPopupFiltre
         {
             get
@@ -134,29 +174,34 @@ namespace PocAlim.ViewModels
             }
         }
 
-		private String[] _filtre;
 
-		public String[] Filtre
-		{
-			get { return _filtre; }
-			set { _filtre = value; RaisePropertyChanged(() => Filtre); }
-		}
-
-		private string _temoin;
-
-		public String Temoin
-		{
-			get { return _temoin; }
-			set { _temoin = value; RaisePropertyChanged(() => Temoin); }
-		}
-
+		//Récupération des filtres du FilterViewModel
 		public void Init(string filtreToPass)
 		{
-			_temoin = filtreToPass;
+			if (filtreToPass != null && filtreToPass != "") {
+				Filtre = filtreToPass.Split (',');
+			} 
+			else {
+				Filtre = null;
+			}
 		}
 
-        
-    }
+
+		//Prise en compte des filtre
+		public void checkFilters(){
+
+			_markersListFiltre.Clear();
+
+			foreach (MyPOI poi in MarkerList) {
+				foreach (var filtre in Filtre) {
+					if (poi.Type.Equals (filtre)) {
+						_markersListFiltre.Add (poi);
+					}
+				}
+			}
+		}
+
+	}
 }
 
 
