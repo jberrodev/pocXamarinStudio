@@ -9,26 +9,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/filter1"
-        local:MvxBind="Checked FilterRestaurantIsChecked" />
+        local:MvxBind="Checked FilterRestaurationCollectiveIsChecked" />
     <CheckBox
         android:text="@string/filter_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/filter2"
-        local:MvxBind="Checked FilterProximiteIsChecked" />
+        local:MvxBind="Checked FilterAlimentationGeneraleIsChecked" />
     <CheckBox
         android:text="@string/filter_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/filter3"
-        local:MvxBind="Checked FilterTransformationIsChecked" />
+        local:MvxBind="Checked FilterCharcuteriesIsChecked" />
     <CheckBox
         android:text="@string/filter_4"
         android:layout_width="match_parent"
         android:button="@drawable/checkbox_selector"
         android:layout_height="wrap_content"
         android:id="@+id/filter4"
-        local:MvxBind="Checked FilterSupermarcheIsChecked" />
+        local:MvxBind="Checked FilterSupermarchesHypermarchesIsChecked" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

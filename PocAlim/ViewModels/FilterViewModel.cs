@@ -16,10 +16,10 @@ namespace PocAlim.ViewModels
 
         public override void Start()
         {
-			_filterProximiteIsChecked = true;
-			_filterRestaurantIsChecked = true;
-			_filterSupermarcheIsChecked = true;
-			_filterTransformationIsChecked = true;
+			_filterAlimentationGeneraleIsChecked = true;
+			_filterRestaurationCollectiveIsChecked = true;
+			_filterSupermarchesHypermarchesIsChecked = true;
+			_filterCharcuteriesIsChecked = true;
 
 			Recalculate ();
 
@@ -42,48 +42,48 @@ namespace PocAlim.ViewModels
             set { _paramFiltre = value; RaisePropertyChanged(() => ParameterFiltre); }
         }
 
-        private bool _filterRestaurantIsChecked;
+		private bool _filterRestaurationCollectiveIsChecked;
 
-        public Boolean FilterRestaurantIsChecked
+        public Boolean FilterRestaurationCollectiveIsChecked
         {
-            get { return _filterRestaurantIsChecked; }
+			get { return _filterRestaurationCollectiveIsChecked; }
 			set {
-				_filterRestaurantIsChecked = value;
-				RaisePropertyChanged (() => FilterRestaurantIsChecked);
+				_filterRestaurationCollectiveIsChecked = value;
+				RaisePropertyChanged (() => FilterRestaurationCollectiveIsChecked);
 				Recalculate();
 			}
         }
-        private bool _filterProximiteIsChecked;
+		private bool _filterAlimentationGeneraleIsChecked;
 
-        public Boolean FilterProximiteIsChecked
+        public Boolean FilterAlimentationGeneraleIsChecked
         {
-            get { return _filterProximiteIsChecked; }
+			get { return _filterAlimentationGeneraleIsChecked; }
 			set {
-				_filterProximiteIsChecked = value;
-				RaisePropertyChanged (() => FilterProximiteIsChecked);
+				_filterAlimentationGeneraleIsChecked = value;
+				RaisePropertyChanged (() => FilterAlimentationGeneraleIsChecked);
 				Recalculate();
 
 			}
         }
-        private bool _filterTransformationIsChecked;
+		private bool _filterCharcuteriesIsChecked;
 
-        public Boolean FilterTransformationIsChecked
+        public Boolean FilterCharcuteriesIsChecked
         {
-            get { return _filterTransformationIsChecked; }
+			get { return _filterCharcuteriesIsChecked; }
 			set {
-				_filterTransformationIsChecked = value;
-				RaisePropertyChanged (() => FilterTransformationIsChecked);
+				_filterCharcuteriesIsChecked = value;
+				RaisePropertyChanged (() => FilterCharcuteriesIsChecked);
 				Recalculate();
 			}
         }
-        private bool _filterSupermarcheIsChecked;
+		private bool _filterSupermarchesHypermarchesIsChecked;
 
-        public Boolean FilterSupermarcheIsChecked
+        public Boolean FilterSupermarchesHypermarchesIsChecked
         {
-            get { return _filterSupermarcheIsChecked; }
+			get { return _filterSupermarchesHypermarchesIsChecked; }
 			set {
-				_filterSupermarcheIsChecked = value;
-				RaisePropertyChanged (() => FilterSupermarcheIsChecked);
+				_filterSupermarchesHypermarchesIsChecked = value;
+				RaisePropertyChanged (() => FilterSupermarchesHypermarchesIsChecked);
 				Recalculate();
 			}
         }
@@ -92,7 +92,7 @@ namespace PocAlim.ViewModels
         //en fonction des checkboxes
         private void Recalculate()
         { 
-            ParameterFiltre = _myFilter.Reload(FilterRestaurantIsChecked, FilterProximiteIsChecked, FilterTransformationIsChecked, FilterSupermarcheIsChecked);
+			ParameterFiltre = _myFilter.Reload(FilterRestaurationCollectiveIsChecked, FilterAlimentationGeneraleIsChecked, FilterCharcuteriesIsChecked, FilterSupermarchesHypermarchesIsChecked);
 		}
 			
 

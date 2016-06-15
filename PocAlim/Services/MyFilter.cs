@@ -8,19 +8,19 @@ namespace PocAlim.Services
 {
     public class MyFilter : IMyFilter
     {
-		public String Reload(bool filtreRestaurantIsChecked, bool filtreProximiteIsChecked, bool filtreTransformationIsChecked, bool filtreSupermarcheIsChecked)
+		public String Reload(bool filtreRestaurationCollectiveIsChecked, bool filtreAlimentationGeneraleIsChecked, bool filtreCharcuteriesIsChecked, bool filtreSupermarchesHypermarchesIsChecked)
         {
          
 			String list = "";
 
-            if (filtreRestaurantIsChecked)
-				list += "Restaurant,";
-            if (filtreProximiteIsChecked)
-				list +="Proximite,";
-            if (filtreTransformationIsChecked)
-				list+="Transformation,";
-            if (filtreSupermarcheIsChecked)
-				list+="Supermarche,";
+			if (filtreRestaurationCollectiveIsChecked)
+				list += "Restauration Collective,";
+			if (filtreAlimentationGeneraleIsChecked)
+				list +="Alimentation Generale,";
+			if (filtreCharcuteriesIsChecked)
+				list+="Charcuteries,";
+			if (filtreSupermarchesHypermarchesIsChecked)
+				list+="Supermarches Hypermarches,";
 
             return list;
 

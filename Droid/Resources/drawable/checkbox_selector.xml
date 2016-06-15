@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-  <item android:drawable="@drawable/pin_restaurant"
+  <item android:drawable="@drawable/pin_restauration_collective"
         android:state_checked="false"/>
-  <item android:drawable="@drawable/pin_proximite"
+  <item android:drawable="@drawable/pin_alimentation_generale"
         android:state_checked="true"/>
   <item android:drawable="@drawable/splash_logo"/>
 </selector>

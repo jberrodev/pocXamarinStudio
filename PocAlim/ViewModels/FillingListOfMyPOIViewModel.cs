@@ -57,7 +57,7 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Sogeti France"",
                 ""lattitude"": ""48.826870"",
                 ""longitude"": ""2.271165"",
-                ""type"": ""Restaurant"",
+                ""type"": ""Restauration Collective"",
                 ""adresse"": ""22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux"",
                 ""note"": ""5"",
                 ""inspection"": ""01/01/2015""
@@ -66,7 +66,7 @@ namespace PocAlim.ViewModels
                  ""nom"": ""Quelque part"",
                 ""lattitude"": ""48.831772"",
                 ""longitude"": ""2.262446"",
-                ""type"": ""Proximite"",
+                ""type"": ""Alimentation Generale"",
                 ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt"",
                 ""note"": ""2"",
                 ""inspection"": ""01/01/2016""
@@ -75,7 +75,7 @@ namespace PocAlim.ViewModels
                  ""nom"": ""Quelque part ailleurs"",
                 ""lattitude"": ""48.831165"",
                 ""longitude"": ""2.254237"",
-                ""type"": ""Supermarche"",
+                ""type"": ""Supermarches Hypermarches"",
                 ""adresse"": ""18,rue d'ailleurs, 92100 Boulogne-Billancourt"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
@@ -84,7 +84,7 @@ namespace PocAlim.ViewModels
                  ""nom"": ""Quelque part d'autre"",
                 ""lattitude"": ""48.828851"",
                 ""longitude"": ""2.266948"",
-                ""type"": ""Transformation"",
+                ""type"": ""Charcuteries"",
                 ""adresse"": ""123 Avenue d'autre part, 92130 Issy Les Moulineaux"",
                 ""note"": ""3"",
                 ""inspection"": ""01/01/2016""
@@ -93,7 +93,7 @@ namespace PocAlim.ViewModels
                  ""nom"": ""Hello mon ami"",
                 ""lattitude"": ""48.826551"",
                 ""longitude"": ""2.257548"",
-                ""type"": ""Transformation"",
+                ""type"": ""Charcuteries"",
                 ""adresse"": ""t'aime ca manger des papates"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
@@ -102,7 +102,7 @@ namespace PocAlim.ViewModels
                  ""nom"": ""Dr pepper"",
                 ""lattitude"": ""48.822913"",
                 ""longitude"": ""2.260731"",
-                ""type"": ""Transformation"",
+                ""type"": ""Charcuteries"",
                 ""adresse"": ""moi non"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""

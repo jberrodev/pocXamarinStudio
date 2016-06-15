@@ -1747,16 +1747,16 @@ namespace PocAlim.Droid
 			public const int notification_template_icon_bg = 2130837629;
 			
 			// aapt resource value: 0x7f020077
-			public const int pin_proximite = 2130837623;
+			public const int pin_alimentation_generale = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int pin_restaurant = 2130837624;
+			public const int pin_charcuteries = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int pin_supermarche = 2130837625;
+			public const int pin_restauration_collective = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int pin_transformation = 2130837626;
+			public const int pin_supermarches_hypermarches = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
 			public const int splash_logo = 2130837627;
