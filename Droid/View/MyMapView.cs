@@ -193,9 +193,8 @@ namespace PocAlim.Droid.View
         //et ajout des markers à la map
         public void addMarkers()
         {
-			Toast.MakeText (this, "add marker start", ToastLength.Short).Show ();
-			Toast.MakeText (this, "markerlist : "+ViewModel.MarkerListFiltre.Count.ToString(), ToastLength.Short).Show ();
-
+			try{
+				
 			foreach (MyPOI marker in ViewModel.MarkerListFiltre)
                 {
                     var option = new MarkerOptions();
@@ -216,10 +215,17 @@ namespace PocAlim.Droid.View
 					else if (marker.Type.Contains("Charcuteries"))
 					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries));
 
-				if (_gMap != null) {
-					_marker = _gMap.AddMarker (option);
+					if (_gMap != null) {
+						_marker = _gMap.AddMarker (option);
+					}
 				}
-                }
+			}
+			catch (FormatException)
+			{
+				
+			}catch (OverflowException)
+			{
+			}
 
         }
 

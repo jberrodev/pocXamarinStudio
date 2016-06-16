@@ -16,8 +16,8 @@ namespace PocAlim.Services
     public class POIJSON
     {
         public string nom { get; set; }
-        public string lattitude { get; set; }
-        public string longitude { get; set; }
+        public double lattitude { get; set; }
+        public double longitude { get; set; }
         public string type { get; set; }
         public string adresse { get; set; }
         public string note { get; set; }

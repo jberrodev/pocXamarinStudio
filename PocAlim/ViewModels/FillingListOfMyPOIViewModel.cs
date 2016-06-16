@@ -55,71 +55,71 @@ namespace PocAlim.ViewModels
         ""data"": [
             {
                 ""nom"": ""Sogeti France"",
-                ""lattitude"": ""48.826870"",
-                ""longitude"": ""2.271165"",
+                ""lattitude"": 48.826870,
+                ""longitude"": 2.271165,
                 ""type"": ""Restauration Collective"",
                 ""adresse"": ""22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux"",
                 ""note"": ""5"",
                 ""inspection"": ""01/01/2015""
             },
             {
-                 ""nom"": ""Quelque part"",
-                ""lattitude"": ""48.831772"",
-                ""longitude"": ""2.262446"",
+                ""nom"": ""Quelque part"",
+                ""lattitude"": 48.831772,
+                ""longitude"": 2.262446,
                 ""type"": ""Alimentation Generale"",
                 ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt"",
                 ""note"": ""2"",
                 ""inspection"": ""01/01/2016""
             },
             {
-                 ""nom"": ""Quelque part ailleurs"",
-                ""lattitude"": ""48.831165"",
-                ""longitude"": ""2.254237"",
+                ""nom"": ""Quelque part ailleurs"",
+                ""lattitude"": 48.831165,
+                ""longitude"": 2.254237,
                 ""type"": ""Supermarches Hypermarches"",
-                ""adresse"": ""18,rue d'ailleurs, 92100 Boulogne-Billancourt"",
+                ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
             },
             {
-                 ""nom"": ""Quelque part d'autre"",
-                ""lattitude"": ""48.828851"",
-                ""longitude"": ""2.266948"",
+                ""nom"": ""Quelque part dautre"",
+                ""lattitude"": 48.828851,
+                ""longitude"": 2.266948,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""123 Avenue d'autre part, 92130 Issy Les Moulineaux"",
+                ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux"",
                 ""note"": ""3"",
                 ""inspection"": ""01/01/2016""
             },
   			{
-                 ""nom"": ""Hello mon ami"",
-                ""lattitude"": ""48.826551"",
-                ""longitude"": ""2.257548"",
+                ""nom"": ""Hello mon ami"",
+                ""lattitude"": 48.826551,
+                ""longitude"": 2.257548,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""t'aime ca manger des papates"",
+                ""adresse"": ""taime ca manger des papates"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
-            },
+			},
 			{
-                 ""nom"": ""Dr pepper"",
-                ""lattitude"": ""48.822913"",
-                ""longitude"": ""2.260731"",
+                ""nom"": ""Dr pepper"",
+                ""lattitude"": 48.822913,
+                ""longitude"": 2.260731,
                 ""type"": ""Charcuteries"",
                 ""adresse"": ""moi non"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
             },
 			{
-                 ""nom"": ""Issy"",
-                ""lattitude"": ""48.820138"",
-                ""longitude"": ""2.255601"",
+                ""nom"": ""Issy"",
+                ""lattitude"": 48.820138,
+                ""longitude"": 2.255601,
                 ""type"": ""Restauration Collective, Supermarches Hypermarches"",
                 ""adresse"": ""moi non"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
             },
 			{
-                 ""nom"": ""Seine"",
-                ""lattitude"": ""48.838601"",
-                ""longitude"": ""2.269233"",
+                ""nom"": ""Seine"",
+                ""lattitude"": 48.838601,
+                ""longitude"": 2.269233,
                 ""type"": ""Alimentation Generale"",
                 ""adresse"": ""moi non"",
                 ""note"": ""1"",
@@ -159,11 +159,10 @@ namespace PocAlim.ViewModels
 
                 foreach (POIJSON markerJson in des.data)
                 {
-                    try
-                    {
+                   
                     var marker = new MyPOI()
                     {
-                        Coord = new GPSCoord() { Lat = Convert.ToDouble(markerJson.lattitude), Lng = Convert.ToDouble(markerJson.longitude) },
+                        Coord = new GPSCoord() { Lat = markerJson.lattitude, Lng = markerJson.longitude },
                         Nom = markerJson.nom,
                         Type = markerJson.type,
                         Adresse = markerJson.adresse,
@@ -172,13 +171,7 @@ namespace PocAlim.ViewModels
 
                         };
                         _markerslist.Add(marker);
-                    }
-                    catch (FormatException)
-                    {
-                    }
-                    catch (OverflowException)
-                    {
-                    }
+                   
 
                 }
             }

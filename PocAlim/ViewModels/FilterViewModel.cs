@@ -16,10 +16,10 @@ namespace PocAlim.ViewModels
 
         public override void Start()
         {
-			_filterAlimentationGeneraleIsChecked = true;
-			_filterRestaurationCollectiveIsChecked = true;
-			_filterSupermarchesHypermarchesIsChecked = true;
-			_filterCharcuteriesIsChecked = true;
+			_filterAlimentationGeneraleIsChecked = false;
+			_filterRestaurationCollectiveIsChecked = false;
+			_filterSupermarchesHypermarchesIsChecked = false;
+			_filterCharcuteriesIsChecked = false;
 
 			Recalculate ();
 
