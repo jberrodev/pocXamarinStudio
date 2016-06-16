@@ -50,9 +50,13 @@ namespace PocAlim.Droid.View
 			if (_isGooglePlayServicesInstalled) {
 				SetContentView (Resource.Layout.View_Map);
 
-				if (_gMap == null)
+				if (_gMap == null) {
 					FragmentManager.FindFragmentById<MapFragment> (Resource.Id.map).GetMapAsync (this);
+				}
+					
 			}
+			//sinon on cache notre view pour laisser la proposition
+			//d'installation de google play services
 			else
 			{
 				SetContentView(Resource.Layout.View_Map);
@@ -83,6 +87,7 @@ namespace PocAlim.Droid.View
             //parcours de la liste de markers du ViewModel
             //et ajout des markers à la map
             addMarkers();
+
             _gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
         }
 
@@ -188,23 +193,34 @@ namespace PocAlim.Droid.View
         //et ajout des markers à la map
         public void addMarkers()
         {
-                foreach (MyPOI marker in ViewModel.MarkerListFiltre)
+			Toast.MakeText (this, "add marker start", ToastLength.Short).Show ();
+			Toast.MakeText (this, "markerlist : "+ViewModel.MarkerListFiltre.Count.ToString(), ToastLength.Short).Show ();
+
+			foreach (MyPOI marker in ViewModel.MarkerListFiltre)
                 {
                     var option = new MarkerOptions();
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
                     option.SetTitle(marker.Nom);
-                    if (marker.Type.Contains("Restauration Collective"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_restauration_collective));
-                    if (marker.Type.Contains("Alimentation Generale"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_alimentation_generale));
-                    if (marker.Type.Contains("Supermarches Hypermarches"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_supermarches_hypermarches));
-                    if (marker.Type.Contains("Charcuteries"))
-                        option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Drawable.marker_charcuteries));
 
-                    if (_gMap != null)
-                        _marker = _gMap.AddMarker(option);
+					//le poi possède au moins deux type
+					if (marker.Type.Contains (","))
+					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_generique));
+					
+				//le poi ne possède qu'un type
+				    else if (marker.Type.Contains("Restauration Collective"))
+					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_restauration_collective));
+					else if (marker.Type.Contains("Alimentation Generale"))
+					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_alimentation_generale));
+					else if (marker.Type.Contains("Supermarches Hypermarches"))
+					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_supermarches_hypermarches));
+					else if (marker.Type.Contains("Charcuteries"))
+					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries));
+
+				if (_gMap != null) {
+					_marker = _gMap.AddMarker (option);
+				}
                 }
+
         }
 
 		private bool TestIfGooglePlayServicesIsInstalled()

@@ -13,19 +13,23 @@
         android:id="@+id/myLayout"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:padding="10dp">
         <Button
             android:text="@string/filter_button_text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#001C86"
+            android:background="@drawable/background_btn_filter"
+            android:id="@+id/FiltreBtn"
+            local:MvxBind="Click GoPopupFiltre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/FiltreBtn"
-            android:layout_gravity="center_horizontal"
-            local:MvxBind="Click GoPopupFiltre" />
-        <TextView
-            android:text="Large Text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textView1"
-            local:MvxBind="Text Temoin" />
+            android:layout_gravity="center_horizontal" />
+        <Button
+            android:text="@string/filter_button_text"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left" />
     </FrameLayout>
 </FrameLayout>

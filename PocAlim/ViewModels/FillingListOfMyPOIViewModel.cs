@@ -106,6 +106,24 @@ namespace PocAlim.ViewModels
                 ""adresse"": ""moi non"",
                 ""note"": ""1"",
                 ""inspection"": ""01/01/2016""
+            },
+			{
+                 ""nom"": ""Issy"",
+                ""lattitude"": ""48.820138"",
+                ""longitude"": ""2.255601"",
+                ""type"": ""Restauration Collective, Supermarches Hypermarches"",
+                ""adresse"": ""moi non"",
+                ""note"": ""1"",
+                ""inspection"": ""01/01/2016""
+            },
+			{
+                 ""nom"": ""Seine"",
+                ""lattitude"": ""48.838601"",
+                ""longitude"": ""2.269233"",
+                ""type"": ""Alimentation Generale"",
+                ""adresse"": ""moi non"",
+                ""note"": ""1"",
+                ""inspection"": ""01/01/2016""
             }
 
         ]
@@ -193,8 +211,8 @@ namespace PocAlim.ViewModels
 			_markersListFiltre.Clear();
 
 			foreach (MyPOI poi in MarkerList) {
-				foreach (var filtre in Filtre) {
-					if (poi.Type.Equals (filtre)) {
+				for (int i =0; i<Filtre.Length-1;i++) {
+					if (poi.Type.Contains(Filtre[i])) {
 						_markersListFiltre.Add (poi);
 					}
 				}
