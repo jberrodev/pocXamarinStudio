@@ -3,10 +3,18 @@
   <string name="map_key">AIzaSyClWnAidogSdOwKBJDtBIyPiPYLcK7RQlc</string>
   <string name="app_name">POC MVVM ALIM</string>
   <string name="filter_button_text">FILTRER</string>
-  <string name="filter_1">Restauration Collective</string>
-  <string name="filter_2">Alimentation Générale</string>
-  <string name="filter_3">Charcuteries</string>
-  <string name="filter_4">Supermarchés Hypermarchés</string>
+  <string name="filter_1">Charcuteries</string>
+  <string name="filter_2">Boucheries</string>
+  <string name="filter_3">Poissoneries</string>
+  <string name="filter_4">Fromageries</string>
+  <string name="filter_5">Traiteurs</string>
+  <string name="filter_6">Glaciers</string>
+  <string name="filter_7">Chocolatiers</string>
+  <string name="filter_8">Boulangeries Pâtisseries</string>
+  <string name="filter_9">Alimentation Générale</string>
+  <string name="filter_10">Supermarchés Hypermarchés</string>
+  <string name="filter_11">Restaurants</string>
+  <string name="filter_12">Restauration Collective</string>
   <string name="button_ok">OK</string>
   <string name="button_cancel">ANNULER</string>
 
