@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:weightSum="4">
         <CheckBox
             android:text="@string/filter_1"
@@ -55,6 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:weightSum="4">
         <CheckBox
             android:text="@string/filter_5"
@@ -101,6 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
         android:weightSum="4">
         <CheckBox
             android:text="@string/filter_9"
@@ -146,16 +149,24 @@
             android:id="@+id/filter12"
             local:MvxBind="Checked FilterRestaurationCollectiveIsChecked" />
     </LinearLayout>
-    <Button
-        android:text="@string/button_ok"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/FilterOkBtn"
-        local:MvxBind="Click SendFiltre" />
-    <Button
-        android:text="@string/button_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/FiltreCloseBtn"
-        local:MvxBind="Click GoBack" />
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal">
+        <Button
+            android:text="@string/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FilterOkBtn"
+            local:MvxBind="Click SendFiltre" />
+        <Button
+            android:text="@string/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FiltreCloseBtn"
+            local:MvxBind="Click GoBack" />
+    </LinearLayout>
 </LinearLayout>
