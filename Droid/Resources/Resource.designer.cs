@@ -1785,14 +1785,17 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f020084
 			public const int common_plus_signin_btn_text_light_pressed = 2130837636;
 			
-			// aapt resource value: 0x7f020087
-			public const int notification_template_icon_bg = 2130837639;
+			// aapt resource value: 0x7f020088
+			public const int notification_template_icon_bg = 2130837640;
 			
 			// aapt resource value: 0x7f020085
-			public const int splash_logo = 2130837637;
+			public const int pin_search = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int splash_screen = 2130837638;
+			public const int splash_logo = 2130837638;
+			
+			// aapt resource value: 0x7f020087
+			public const int splash_screen = 2130837639;
 			
 			static Drawable()
 			{
@@ -1887,6 +1890,9 @@ namespace PocAlim.Droid
 			
 			// aapt resource value: 0x7f0c001b
 			public const int beginning = 2131492891;
+			
+			// aapt resource value: 0x7f0c007c
+			public const int button1 = 2131492988;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int buttonPanel = 2131492920;
@@ -2435,16 +2441,19 @@ namespace PocAlim.Droid
 			public const int pin_restauration_collective_off = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int pin_supermarches_hypermarches = 2130903066;
+			public const int pin_search = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int pin_supermarches_hypermarches_off = 2130903067;
+			public const int pin_supermarches_hypermarches = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int pin_traiteur = 2130903068;
+			public const int pin_supermarches_hypermarches_off = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int pin_traiteur_off = 2130903069;
+			public const int pin_traiteur = 2130903069;
+			
+			// aapt resource value: 0x7f03001e
+			public const int pin_traiteur_off = 2130903070;
 			
 			static Mipmap()
 			{
@@ -2659,6 +2668,12 @@ namespace PocAlim.Droid
 			
 			// aapt resource value: 0x7f060033
 			public const int map_key = 2131099699;
+			
+			// aapt resource value: 0x7f060045
+			public const int menu_btn_text = 2131099717;
+			
+			// aapt resource value: 0x7f060044
+			public const int search_btn_text = 2131099716;
 			
 			// aapt resource value: 0x7f060013
 			public const int status_bar_notification_info_overflow = 2131099667;

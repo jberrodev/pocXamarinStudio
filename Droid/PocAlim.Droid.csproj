@@ -285,6 +285,8 @@
     <AndroidResource Include="Resources\drawable\checkbox_boulangerie_patisserie.xml" />
     <AndroidResource Include="Resources\drawable\background_btn_ok_filter.xml" />
     <AndroidResource Include="Resources\drawable\background_btn_round.xml" />
+    <AndroidResource Include="Resources\mipmap-mdpi\pin_search.png" />
+    <AndroidResource Include="Resources\drawable\pin_search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

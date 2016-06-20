@@ -17,5 +17,9 @@
   <string name="filter_12">Restauration Collective</string>
   <string name="button_ok">OK</string>
   <string name="button_cancel">ANNULER</string>
+  <string name="search_btn_text">Rechercher</string>
+  <string name="menu_btn_text">Menu</string>
+
+
 
 </resources>

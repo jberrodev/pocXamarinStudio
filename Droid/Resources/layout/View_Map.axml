@@ -26,10 +26,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
         <Button
-            android:text="@string/filter_button_text"
+            android:text="@string/menu_btn_text"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pin_search"
+            android:background="@drawable/background_btn_round"
+            android:padding="15dp"
+            android:layout_gravity="center_vertical|right"
+            android:id="@+id/button1" />
     </FrameLayout>
 </FrameLayout>

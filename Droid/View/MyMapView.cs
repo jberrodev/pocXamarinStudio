@@ -15,6 +15,7 @@ using PocAlim.ViewModels;
 using PocAlim.Services;
 using Android.Gms.Common;
 using Android.Views;
+using Android.Net;
 
 namespace PocAlim.Droid.View
 {
@@ -50,6 +51,13 @@ namespace PocAlim.Droid.View
 			if (_isGooglePlayServicesInstalled) {
 				SetContentView (Resource.Layout.View_Map);
 
+				//On vérifie la connexion internet
+				bool test = isNetworkConnected();
+				if (!test) {
+					Toast.MakeText(this, "La connexion internet est necessaire", ToastLength.Short).Show();
+				}
+
+
 				if (_gMap == null) {
 					FragmentManager.FindFragmentById<MapFragment> (Resource.Id.map).GetMapAsync (this);
 				}
@@ -70,6 +78,8 @@ namespace PocAlim.Droid.View
         public void OnMapReady(GoogleMap googleMap)
         {
             _gMap = googleMap;
+
+			//Autorisation et positionnement du boutton zoom
             _gMap.UiSettings.ZoomControlsEnabled = true;
 
             //Verification des permissions  de localisation
@@ -90,6 +100,14 @@ namespace PocAlim.Droid.View
 
             _gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
         }
+
+		//verification de l'état de la connexion
+		private Boolean isNetworkConnected()
+		{
+			ConnectivityManager cm = (ConnectivityManager)GetSystemService(Context.ConnectivityService);
+
+			return cm.ActiveNetworkInfo != null;
+		}
 
         //Verification de l'autorisation de localisation
         public void checkLocationPermission()
@@ -237,6 +255,10 @@ namespace PocAlim.Droid.View
 				return true;
 			}
 			return false;
+		}
+
+		public override void OnBackPressed()
+		{
 		}
 
        
