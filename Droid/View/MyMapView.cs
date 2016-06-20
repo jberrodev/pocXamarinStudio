@@ -261,7 +261,25 @@ namespace PocAlim.Droid.View
 		{
 		}
 
-       
+		protected override void OnResume()
+		{
+			base.OnResume();
+
+			Toast.MakeText(this, "onresume 1", ToastLength.Short).Show();
+			_isGooglePlayServicesInstalled = TestIfGooglePlayServicesIsInstalled();
+			Toast.MakeText(this, "onresume 2", ToastLength.Short).Show();
+
+			if (_isGooglePlayServicesInstalled)
+			{
+				FrameLayout myLayout = (FrameLayout)FindViewById(Resource.Id.myLayout);
+				if (myLayout.Visibility == ViewStates.Invisible)
+					myLayout.Visibility = ViewStates.Visible;
+				Toast.MakeText(this, "onresume 3", ToastLength.Short).Show();
+
+			}
+			Toast.MakeText(this, "onresume 4", ToastLength.Short).Show();
+
+		}
     }
 
 }
