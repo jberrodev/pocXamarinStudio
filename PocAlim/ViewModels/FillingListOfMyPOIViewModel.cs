@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using PocAlim.Services;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Platform;
 
 namespace PocAlim.ViewModels
 {
     public class FillingListOfMyPOIViewModel : MvxViewModel
-    {
+	{
+
 		//Liste chargée depuis le Json
-        private List<MyPOI> _markerslist;
+		private List<MyPOI> _markerslist;
 
         public List<MyPOI> MarkerList
         {

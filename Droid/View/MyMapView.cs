@@ -244,7 +244,6 @@ namespace PocAlim.Droid.View
 			}catch (OverflowException)
 			{
 			}
-
         }
 
 		private bool TestIfGooglePlayServicesIsInstalled()
