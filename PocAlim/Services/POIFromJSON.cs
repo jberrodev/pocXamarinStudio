@@ -20,8 +20,18 @@ namespace PocAlim.Services
         public double longitude { get; set; }
         public string type { get; set; }
         public string adresse { get; set; }
-		public IList<MyPOIActivite> activites { get; set; }
+		public IList<ActiviteJSON> activites { get; set; }
 
 	}
+
+	public class ActiviteJSON
+	{
+		public string nom { get; set; }
+		public string note { get; set; }
+		public string date { get; set; }
+		
+	}
+
+
 }
 

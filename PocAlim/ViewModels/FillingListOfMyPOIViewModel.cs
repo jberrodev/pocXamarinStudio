@@ -63,57 +63,90 @@ namespace PocAlim.ViewModels
                 ""adresse"": ""22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux"",
 				""activites"":
 							[
-								{ ""nom"": ""Restauration Collective "", ""note"": ""Satisfaisante"", ""date"": ""01/01/2015"" }
-							],
+								{	 
+									 ""nom"": ""Restauration Collective "",
+									 ""note"": ""Satisfaisante"",
+									 ""date"": ""01/01/2015"" }
+							]
             },
             {
                 ""nom"": ""Quelque part"",
                 ""lattitude"": 48.831772,
                 ""longitude"": 2.262446,
                 ""type"": ""Alimentation Generale"",
-                ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt""
+                ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt"",
+				""activites"":
+							[
+								{ ""nom"": ""Alimentation Generale"", ""note"": ""Moyen"", ""date"": ""02/02/2016"" }
+							]
             },
             {
                 ""nom"": ""Quelque part ailleurs"",
                 ""lattitude"": 48.831165,
                 ""longitude"": 2.254237,
                 ""type"": ""Supermarches Hypermarches"",
-                ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt""
+                ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt"",
+				""activites"":
+							[
+								{ ""nom"": ""Supermarches Hypermarches"", ""note"": ""Moyen"", ""date"": ""03/03/2016"" }
+							]
             },
             {
                 ""nom"": ""Quelque part dautre"",
                 ""lattitude"": 48.828851,
                 ""longitude"": 2.266948,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux""
+                ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux"",
+				""activites"":
+							[
+								{ ""nom"": ""Charcuteries"", ""note"": ""Passable"", ""date"": ""05/05/2016"" }
+							]
             },
   			{
                 ""nom"": ""Hello mon ami"",
                 ""lattitude"": 48.826551,
                 ""longitude"": 2.257548,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""taime ca manger des papates""
+                ""adresse"": ""taime ca manger des papates"",
+				""activites"":
+							[
+								{ ""nom"": ""Charcuteries"", ""note"": ""Moyen"", ""date"": ""05/06/2016"" }
+							]
 			},
 			{
                 ""nom"": ""Dr pepper"",
                 ""lattitude"": 48.822913,
                 ""longitude"": 2.260731,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""moi non""
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Charcuteries"", ""note"": ""Passable"", ""date"": ""08/06/2016"" }
+							]
             },
 			{
                 ""nom"": ""Issy"",
                 ""lattitude"": 48.820138,
                 ""longitude"": 2.255601,
                 ""type"": ""Restauration Collective, Supermarches Hypermarches"",
-                ""adresse"": ""moi non""
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Restauration Collective"", ""note"": ""Bien"", ""date"": ""01/08/2015"" },
+								{ ""nom"": ""Supermarches Hypermarches"", ""note"": ""Satisfaisante"", ""date"": ""05/08/2015"" }
+							]
             },
 			{
                 ""nom"": ""Seine"",
                 ""lattitude"": 48.838601,
                 ""longitude"": 2.269233,
                 ""type"": ""Alimentation Generale"",
-                ""adresse"": ""moi non""
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Alimentation Generale"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
             }
 
         ]
@@ -147,20 +180,27 @@ namespace PocAlim.ViewModels
           
                 var des = (POIFromJSON)Newtonsoft.Json.JsonConvert.DeserializeObject(jsonString2, typeof(POIFromJSON));
 
-                foreach (POIJSON markerJson in des.data)
-                {
-                   
-                    var marker = new MyPOI()
-                    {
-                        Coord = new GPSCoord() { Lat = markerJson.lattitude, Lng = markerJson.longitude },
-                        Nom = markerJson.nom,
-                        Type = markerJson.type,
-                        Adresse = markerJson.adresse,
-						Activites = markerJson.activites
-                        };
-                        _markerslist.Add(marker);
+			foreach (POIJSON markerJson in des.data)
+			{
+				//Association de la liste d'activité du JSON avec la propriété de MyPOI
+				//Car elles ne sont pas des listes d'objets de même type 
+				// List<MyPOIActivite> et List <ActiviteJSON>...
 
-				}
+				var targetList = markerJson.activites
+				                           .Select(x => new MyPOIActivite() { NomActivite = x.nom, NoteActivite =x.note, DateActivite = x.date })
+  											.ToList();
+				var marker = new MyPOI()
+				{
+					Coord = new GPSCoord() { Lat = markerJson.lattitude, Lng = markerJson.longitude },
+					Nom = markerJson.nom,
+					Type = markerJson.type,
+					Adresse = markerJson.adresse,
+					Activites = targetList
+
+				};
+
+						_markerslist.Add(marker);
+			}
             }
 
 		//Lancement du l'écran de filtrage
