@@ -14,16 +14,15 @@ namespace PocAlim.Services
         private String _nom;
         private String _type;
         private String _adresse;
-        private Decimal _note;
-        private String _inspection;
+		public IList<MyPOIActivite> _activites;
 
-        public MyPOI()
+
+		public MyPOI()
         {
             _coord = Coord;
             _nom = Nom;
             _adresse = Adresse;
-            _note = Note;
-            _inspection = Inspection;
+			_activites = Activites;
         }
 
         public GPSCoord Coord
@@ -42,19 +41,70 @@ namespace PocAlim.Services
             set { _type = value; RaisePropertyChanged(() => Type); }
         }
         public String Adresse
-        {
-            get { return _adresse; }
-            set { _adresse = value; RaisePropertyChanged(() => Adresse); }
-        }
-        public Decimal Note
-        {
-            get { return _note; }
-            set { _note = value; RaisePropertyChanged(() => Note); }
-        }
-        public String Inspection
-        {
-            get { return _inspection; }
-            set { _inspection = value; RaisePropertyChanged(() => Inspection); }
-        }
+		{
+			get { return _adresse; }
+			set { _adresse = value; RaisePropertyChanged(() => Adresse); }
+		}
+		public IList<MyPOIActivite> Activites
+		{
+			get { return _activites; }
+			set { _activites = value; RaisePropertyChanged(() => Activites); }
+		}
     }
+
+	public class GPSCoord : MvxViewModel
+	{
+		private double _lat;
+		private double _lng;
+
+		public GPSCoord()
+		{
+			_lat = Lat;
+			_lng = Lng;
+		}
+
+		public double Lat
+		{
+			get { return _lat; }
+			set { _lat = value; RaisePropertyChanged(() => Lat); }
+		}
+
+		public double Lng
+		{
+			get { return _lng; }
+			set { _lng = value; RaisePropertyChanged(() => Lng); }
+		}
+	}
+
+	public class MyPOIActivite : MvxViewModel
+	{
+		private string _nomActivite;
+		private string _noteActivite;
+		private string _dateActivite;
+
+		public MyPOIActivite()
+		{
+			_nomActivite = NomActivite;
+			_noteActivite = NoteActivite;
+			_dateActivite = DateActivite;
+		}
+
+		public String NomActivite
+		{
+			get { return _nomActivite; }
+			set { _nomActivite = value; RaisePropertyChanged(() => NomActivite); }
+		}
+
+		public String NoteActivite
+		{
+			get { return _noteActivite; }
+			set { _noteActivite = value; RaisePropertyChanged(() => NoteActivite); }
+		}
+
+		public String DateActivite
+		{
+			get { return _dateActivite; }
+			set { _dateActivite = value; RaisePropertyChanged(() => DateActivite); }
+		}
+	}
 }

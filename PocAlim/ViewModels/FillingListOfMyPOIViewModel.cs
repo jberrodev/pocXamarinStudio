@@ -61,71 +61,59 @@ namespace PocAlim.ViewModels
                 ""longitude"": 2.271165,
                 ""type"": ""Restauration Collective"",
                 ""adresse"": ""22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux"",
-                ""note"": ""5"",
-                ""inspection"": ""01/01/2015""
+				""activites"":
+							[
+								{ ""nom"": ""Restauration Collective "", ""note"": ""Satisfaisante"", ""date"": ""01/01/2015"" }
+							],
             },
             {
                 ""nom"": ""Quelque part"",
                 ""lattitude"": 48.831772,
                 ""longitude"": 2.262446,
                 ""type"": ""Alimentation Generale"",
-                ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt"",
-                ""note"": ""2"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt""
             },
             {
                 ""nom"": ""Quelque part ailleurs"",
                 ""lattitude"": 48.831165,
                 ""longitude"": 2.254237,
                 ""type"": ""Supermarches Hypermarches"",
-                ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt"",
-                ""note"": ""1"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt""
             },
             {
                 ""nom"": ""Quelque part dautre"",
                 ""lattitude"": 48.828851,
                 ""longitude"": 2.266948,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux"",
-                ""note"": ""3"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux""
             },
   			{
                 ""nom"": ""Hello mon ami"",
                 ""lattitude"": 48.826551,
                 ""longitude"": 2.257548,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""taime ca manger des papates"",
-                ""note"": ""1"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""taime ca manger des papates""
 			},
 			{
                 ""nom"": ""Dr pepper"",
                 ""lattitude"": 48.822913,
                 ""longitude"": 2.260731,
                 ""type"": ""Charcuteries"",
-                ""adresse"": ""moi non"",
-                ""note"": ""1"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""moi non""
             },
 			{
                 ""nom"": ""Issy"",
                 ""lattitude"": 48.820138,
                 ""longitude"": 2.255601,
                 ""type"": ""Restauration Collective, Supermarches Hypermarches"",
-                ""adresse"": ""moi non"",
-                ""note"": ""1"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""moi non""
             },
 			{
                 ""nom"": ""Seine"",
                 ""lattitude"": 48.838601,
                 ""longitude"": 2.269233,
                 ""type"": ""Alimentation Generale"",
-                ""adresse"": ""moi non"",
-                ""note"": ""1"",
-                ""inspection"": ""01/01/2016""
+                ""adresse"": ""moi non""
             }
 
         ]
@@ -168,14 +156,11 @@ namespace PocAlim.ViewModels
                         Nom = markerJson.nom,
                         Type = markerJson.type,
                         Adresse = markerJson.adresse,
-                        Note = Convert.ToDecimal(markerJson.note),
-                        Inspection = markerJson.inspection
-
+						Activites = markerJson.activites
                         };
                         _markerslist.Add(marker);
-                   
 
-                }
+				}
             }
 
 		//Lancement du l'écran de filtrage

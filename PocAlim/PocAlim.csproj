@@ -35,7 +35,6 @@
     <Compile Include="ViewModels\FillingListOfMyPOIViewModel.cs" />
     <Compile Include="ViewModels\FilterViewModel.cs" />
     <Compile Include="Services\POIFromJSON.cs" />
-    <Compile Include="Services\GPSCoord.cs" />
     <Compile Include="Services\IMyFiler.cs" />
     <Compile Include="Services\MyFilter.cs" />
     <Compile Include="Services\MyPOI.cs" />
