@@ -12,19 +12,21 @@ using Android.Widget;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using MvvmCross.Droid.Views;
+using Android.Support.V4.App;
+using Android.Support.V4.View;
 
 namespace PocAlim.Droid.View
 {
-    public class CustomMarkerPopupAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
+    public class CustomMarkerPopupAdapter : FragmentActivity, GoogleMap.IInfoWindowAdapter
     {
-
         private LayoutInflater _layoutInflater = null;
         
         public CustomMarkerPopupAdapter(LayoutInflater inflater)
         {
             //This constructor does hit a breakpoint and executes
             _layoutInflater = inflater;
-        }
+
+		}
 
         public Android.Views.View GetInfoContents(Marker marker)
         {
@@ -36,7 +38,6 @@ namespace PocAlim.Droid.View
             {
                 titleTextView.Text = marker.Title;
             }
-
             return customPopup;
         }
 
@@ -49,8 +50,9 @@ namespace PocAlim.Droid.View
             {
                 titleTextView.Text = marker.Title;
             }
-
             return customPopup;
-        }    
-    }
+        }
+	}
+
+
 }

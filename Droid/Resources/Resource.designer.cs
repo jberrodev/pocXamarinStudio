@@ -1813,8 +1813,8 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f0c0076
 			public const int FilterOkBtn = 2131492982;
 			
-			// aapt resource value: 0x7f0c007b
-			public const int FiltreBtn = 2131492987;
+			// aapt resource value: 0x7f0c007c
+			public const int FiltreBtn = 2131492988;
 			
 			// aapt resource value: 0x7f0c0077
 			public const int FiltreCloseBtn = 2131492983;
@@ -1891,8 +1891,8 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f0c001b
 			public const int beginning = 2131492891;
 			
-			// aapt resource value: 0x7f0c007c
-			public const int button1 = 2131492988;
+			// aapt resource value: 0x7f0c007e
+			public const int button1 = 2131492990;
 			
 			// aapt resource value: 0x7f0c0038
 			public const int buttonPanel = 2131492920;
@@ -1918,8 +1918,8 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f0c0043
 			public const int customPanel = 2131492931;
 			
-			// aapt resource value: 0x7f0c0078
-			public const int custom_marker_popup_title = 2131492984;
+			// aapt resource value: 0x7f0c0079
+			public const int custom_marker_popup_title = 2131492985;
 			
 			// aapt resource value: 0x7f0c002a
 			public const int dark = 2131492906;
@@ -2023,11 +2023,14 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f0c0035
 			public const int list_item = 2131492917;
 			
-			// aapt resource value: 0x7f0c0079
-			public const int map = 2131492985;
+			// aapt resource value: 0x7f0c007a
+			public const int map = 2131492986;
 			
 			// aapt resource value: 0x7f0c0060
 			public const int media_actions = 2131492960;
+			
+			// aapt resource value: 0x7f0c007d
+			public const int menuBtn = 2131492989;
 			
 			// aapt resource value: 0x7f0c001d
 			public const int middle = 2131492893;
@@ -2035,8 +2038,11 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f0c0016
 			public const int multiply = 2131492886;
 			
-			// aapt resource value: 0x7f0c007a
-			public const int myLayout = 2131492986;
+			// aapt resource value: 0x7f0c0078
+			public const int myCaroussel = 2131492984;
+			
+			// aapt resource value: 0x7f0c007b
+			public const int myLayout = 2131492987;
 			
 			// aapt resource value: 0x7f0c0021
 			public const int never = 2131492897;
@@ -2341,13 +2347,19 @@ namespace PocAlim.Droid
 			public const int support_simple_spinner_dropdown_item = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int View_Filtre = 2130968613;
+			public const int View_Caroussel = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int View_Info_Window = 2130968614;
+			public const int View_Filtre = 2130968614;
 			
 			// aapt resource value: 0x7f040027
-			public const int View_Map = 2130968615;
+			public const int View_Info_Popup = 2130968615;
+			
+			// aapt resource value: 0x7f040028
+			public const int View_Info_Window = 2130968616;
+			
+			// aapt resource value: 0x7f040029
+			public const int View_Map = 2130968617;
 			
 			static Layout()
 			{

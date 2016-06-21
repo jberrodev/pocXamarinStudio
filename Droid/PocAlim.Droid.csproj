@@ -104,6 +104,7 @@
     <Compile Include="View\FilterView.cs" />
     <Compile Include="View\MyMapView.cs" />
     <Compile Include="View\Splash.cs" />
+    <Compile Include="InfoPopupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -287,6 +288,8 @@
     <AndroidResource Include="Resources\drawable\background_btn_round.xml" />
     <AndroidResource Include="Resources\mipmap-mdpi\pin_search.png" />
     <AndroidResource Include="Resources\drawable\pin_search.png" />
+    <AndroidResource Include="Resources\layout\View_Caroussel.axml" />
+    <AndroidResource Include="Resources\layout\View_Info_Popup.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

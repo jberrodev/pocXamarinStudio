@@ -23,7 +23,7 @@ namespace PocAlim.Droid.View
     /**Classe de création de la map
      * et ajout des markers**/
     [Activity(Label = "Map", Theme = "@style/MyTheme.NoTitle")]
-    public class MyMapView : MvxActivity, IOnMapReadyCallback, Android.Gms.Maps.GoogleMap.IOnMyLocationButtonClickListener
+	public class MyMapView : MvxActivity, IOnMapReadyCallback, Android.Gms.Maps.GoogleMap.IOnMyLocationButtonClickListener,IOnInfoWindowClickListener
     {
 
 		public static readonly int InstallGooglePlayServicesId = 1000;
@@ -31,6 +31,7 @@ namespace PocAlim.Droid.View
 
         private GoogleMap _gMap;
         private Marker _marker;
+		private Marker _pointClick;
         LocationManager _locationManager;
 
 
@@ -98,7 +99,9 @@ namespace PocAlim.Droid.View
             //et ajout des markers à la map
             addMarkers();
 
-            _gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
+			//infopopoupwindows custom
+			//_gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
+			_gMap.SetOnInfoWindowClickListener(this);
         }
 
 		//verification de l'état de la connexion
@@ -159,12 +162,33 @@ namespace PocAlim.Droid.View
             return false;
         }
       
-
+		//Clique map place un point
         private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
         {
-           // Toast.MakeText(this, String.Format("You clicked on the MAP"), ToastLength.Short).Show();
+			if (_gMap != null)
+			{
+				if (_pointClick != null)
+					_pointClick.Remove();
+				
+				MarkerOptions markerOpt1 = new MarkerOptions();
+				markerOpt1.SetPosition(new LatLng(mapClickEventArgs.Point.Latitude,mapClickEventArgs.Point.Longitude));
+				markerOpt1.SetTitle("Rechercher autour");
+				_pointClick  = _gMap.AddMarker(markerOpt1);
+
+				_pointClick.ShowInfoWindow();
+			}
 
         }
+
+
+		public void OnInfoWindowClick(Marker marker)
+		{
+			if(marker.Title.Equals(_pointClick.Title))
+			Toast.MakeText(this, "fonction à développer ", ToastLength.Short).Show();
+
+		}
+	
+
 
         private void MapOnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs markerClickEventArgs)
         {
@@ -172,13 +196,17 @@ namespace PocAlim.Droid.View
             Marker marker = markerClickEventArgs.Marker;
 
             //zoom avec animation sur le marker
-            //cliqué avec un décallage pour
-            //laisser de la place à la infowindow
-             animateCameraOnMarker(marker);
-            
-            //affichage des infos
-            marker.ShowInfoWindow();
-        }
+            // animateCameraOnMarker(marker);
+
+			//zoom sans animation sur le marker
+			_gMap.MoveCamera(CameraUpdateFactory.NewLatLng(marker.Position));
+
+			//affichage des infos
+			//marker.ShowInfoWindow();
+
+			StartActivity(typeof(FragmentTest));
+
+		}
 
         //zoom avec animation sur le marker
         //cliqué avec un décallage pour
@@ -279,6 +307,7 @@ namespace PocAlim.Droid.View
 			Toast.MakeText(this, "onresume 4", ToastLength.Short).Show();
 
 		}
-    }
+
+	}
 
 }

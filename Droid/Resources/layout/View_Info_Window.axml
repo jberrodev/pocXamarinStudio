@@ -4,18 +4,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
+    android:orientation="vertical"
     android:paddingTop="20dp"
-    android:background="@drawable/bubble_info">
+    android:background="#fff">
     <TextView
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textColor="#000"
         android:id="@+id/custom_marker_popup_title" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textColor="#000"
-        local:MvxBind="Text Test" />
 </LinearLayout>
