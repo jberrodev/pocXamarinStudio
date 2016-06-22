@@ -16,23 +16,23 @@ namespace PocAlim.ViewModels
 
         public override void Start()
         {
-			_filterAlimentationGeneraleIsChecked = false;
-			_filterRestaurationCollectiveIsChecked = false;
-			_filterSupermarchesHypermarchesIsChecked = false;
 			_filterCharcuteriesIsChecked = false;
+			_filterBoucheriesIsChecked = false;
+			_filterPoissonneriesIsChecked = false;
+			_filterFromageriesIsChecked = false;
+			_fitlerTraiteursIsChecked = false;
+			_filterGlaciersIsChecked = false;
+			_filterChocolatiersIsChecked = false;
+			_filterBoulangeriesPatisseriesIsChecked = false;
+			_filterAlimentationGeneraleIsChecked = false;
+			_filterSupermarchesHypermarchesIsChecked = false;
+			_filterRestaurantsIsChecked = false;
+			_filterRestaurationCollectiveIsChecked = false;
 
 			Recalculate ();
 
 			base.Start();
         }
-
-		private string _errorMessage;
-
-		public String ErrorMessage
-		{
-			get { return _errorMessage; }
-			set { _errorMessage = value; RaisePropertyChanged(() => ErrorMessage); }
-		}
 
         private String _paramFiltre;
 
@@ -42,9 +42,142 @@ namespace PocAlim.ViewModels
             set { _paramFiltre = value; RaisePropertyChanged(() => ParameterFiltre); }
         }
 
+		private bool _filterCharcuteriesIsChecked;
+		private bool _filterBoucheriesIsChecked;
+		private bool _filterPoissonneriesIsChecked;
+		private bool _filterFromageriesIsChecked;
+		private bool _fitlerTraiteursIsChecked;
+		private bool _filterGlaciersIsChecked;
+		private bool _filterChocolatiersIsChecked;
+		private bool _filterBoulangeriesPatisseriesIsChecked;
+		private bool _filterAlimentationGeneraleIsChecked;
+		private bool _filterSupermarchesHypermarchesIsChecked;
+		private bool _filterRestaurantsIsChecked;
 		private bool _filterRestaurationCollectiveIsChecked;
 
-        public Boolean FilterRestaurationCollectiveIsChecked
+		public Boolean FilterCharcuteriesIsChecked
+		{
+			get { return _filterCharcuteriesIsChecked; }
+			set
+			{
+				_filterCharcuteriesIsChecked = value;
+				RaisePropertyChanged(() => FilterCharcuteriesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterBoucheriesIsChecked
+		{
+			get { return _filterBoucheriesIsChecked; }
+			set
+			{
+				_filterBoucheriesIsChecked = value;
+				RaisePropertyChanged(() => FilterBoucheriesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterPoissonneriesIsChecked
+		{
+			get { return _filterPoissonneriesIsChecked; }
+			set
+			{
+				_filterPoissonneriesIsChecked = value;
+				RaisePropertyChanged(() => FilterPoissonneriesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterFromageriesIsChecked
+		{
+			get { return _filterFromageriesIsChecked; }
+			set
+			{
+				_filterFromageriesIsChecked = value;
+				RaisePropertyChanged(() => FilterFromageriesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterTraiteursIsChecked
+		{
+			get { return _fitlerTraiteursIsChecked; }
+			set
+			{
+				_fitlerTraiteursIsChecked = value;
+				RaisePropertyChanged(() => FilterTraiteursIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterGlaciersIsChecked
+		{
+			get { return _filterGlaciersIsChecked; }
+			set
+			{
+				_filterGlaciersIsChecked = value;
+				RaisePropertyChanged(() => FilterGlaciersIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterChocolatiersIsChecked
+		{
+			get { return _filterChocolatiersIsChecked; }
+			set
+			{
+				_filterChocolatiersIsChecked = value;
+				RaisePropertyChanged(() => FilterChocolatiersIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterBoulangeriesPatisseriesIsChecked
+		{
+			get { return _filterBoulangeriesPatisseriesIsChecked; }
+			set
+			{
+				_filterBoulangeriesPatisseriesIsChecked = value;
+				RaisePropertyChanged(() => FilterBoulangeriesPatisseriesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterAlimentationGeneraleIsChecked
+		{
+			get { return _filterAlimentationGeneraleIsChecked; }
+			set
+			{
+				_filterAlimentationGeneraleIsChecked = value;
+				RaisePropertyChanged(() => FilterAlimentationGeneraleIsChecked);
+				Recalculate();
+
+			}
+		}
+
+		public Boolean FilterSupermarchesHypermarchesIsChecked
+		{
+			get { return _filterSupermarchesHypermarchesIsChecked; }
+			set
+			{
+				_filterSupermarchesHypermarchesIsChecked = value;
+				RaisePropertyChanged(() => FilterSupermarchesHypermarchesIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterRestaurantsIsChecked
+		{
+			get { return _filterRestaurantsIsChecked; }
+			set
+			{
+				_filterRestaurantsIsChecked = value;
+				RaisePropertyChanged(() => FilterRestaurantsIsChecked);
+				Recalculate();
+			}
+		}
+
+		public Boolean FilterRestaurationCollectiveIsChecked
         {
 			get { return _filterRestaurationCollectiveIsChecked; }
 			set {
@@ -53,46 +186,26 @@ namespace PocAlim.ViewModels
 				Recalculate();
 			}
         }
-		private bool _filterAlimentationGeneraleIsChecked;
 
-        public Boolean FilterAlimentationGeneraleIsChecked
-        {
-			get { return _filterAlimentationGeneraleIsChecked; }
-			set {
-				_filterAlimentationGeneraleIsChecked = value;
-				RaisePropertyChanged (() => FilterAlimentationGeneraleIsChecked);
-				Recalculate();
 
-			}
-        }
-		private bool _filterCharcuteriesIsChecked;
 
-        public Boolean FilterCharcuteriesIsChecked
-        {
-			get { return _filterCharcuteriesIsChecked; }
-			set {
-				_filterCharcuteriesIsChecked = value;
-				RaisePropertyChanged (() => FilterCharcuteriesIsChecked);
-				Recalculate();
-			}
-        }
-		private bool _filterSupermarchesHypermarchesIsChecked;
-
-        public Boolean FilterSupermarchesHypermarchesIsChecked
-        {
-			get { return _filterSupermarchesHypermarchesIsChecked; }
-			set {
-				_filterSupermarchesHypermarchesIsChecked = value;
-				RaisePropertyChanged (() => FilterSupermarchesHypermarchesIsChecked);
-				Recalculate();
-			}
-        }
 
         //On recharge les POI
         //en fonction des checkboxes
         private void Recalculate()
         { 
-			ParameterFiltre = _myFilter.Reload(FilterRestaurationCollectiveIsChecked, FilterAlimentationGeneraleIsChecked, FilterCharcuteriesIsChecked, FilterSupermarchesHypermarchesIsChecked);
+			ParameterFiltre = _myFilter.Reload(FilterCharcuteriesIsChecked,
+			                                   FilterBoucheriesIsChecked,
+			                                   FilterPoissonneriesIsChecked,
+			                                   FilterFromageriesIsChecked,
+			                                   FilterTraiteursIsChecked,
+			                                   FilterGlaciersIsChecked,
+			                                   FilterChocolatiersIsChecked,
+			                                   FilterBoulangeriesPatisseriesIsChecked,
+			                                   FilterAlimentationGeneraleIsChecked,
+			                                   FilterSupermarchesHypermarchesIsChecked,
+			                                   FilterRestaurantsIsChecked,
+			                                   FilterRestaurationCollectiveIsChecked);
 		}
 			
 

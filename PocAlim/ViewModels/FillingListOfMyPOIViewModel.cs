@@ -123,7 +123,7 @@ namespace PocAlim.ViewModels
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
-								{ ""nom"": ""Poissoneries"", ""note"": ""Passable"", ""date"": ""08/06/2016"" }
+								{ ""nom"": ""Poissonneries"", ""note"": ""Passable"", ""date"": ""08/06/2016"" }
 							]
             },
 			{

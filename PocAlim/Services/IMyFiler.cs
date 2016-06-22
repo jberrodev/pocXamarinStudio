@@ -8,6 +8,17 @@ namespace PocAlim.Services
 {
     public interface IMyFilter
     {
-		String Reload(bool filtreRestaurationCollectiveIsChecked, bool filtreAlimentationGeneraleIsChecked, bool filtreCharcuteriesIsChecked, bool filtreSupermarchesHypermarchesIsChecked);
+		String Reload(bool filtreCharcuteriesIsChecked,
+							 bool filtreBoucheriesIsChecked,
+							 bool filtrePoissonneriesIsChecked,
+							 bool filtreFromageriesIsChecked,
+							 bool filtreTraiteursIsChecked,
+							 bool filtreGlaciersIsChecked,
+							 bool filtreChocolatiersIsChecked,
+							 bool filtreBoulangeriesPatisseriesIsChecked,
+							 bool filtreAlimentationGeneraleIsChecked,
+							 bool filtreSupermarchesHypermarchesIsChecked,
+							 bool filtreRestaurantsIsChecked,
+							 bool filtreRestaurationCollectiveIsChecked);
     }
 }

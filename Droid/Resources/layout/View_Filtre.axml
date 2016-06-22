@@ -30,7 +30,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_boucherie"
-            android:id="@+id/filter2" />
+            android:id="@+id/filter2"
+            local:MvxBind="Checked FilterBoucheriesIsChecked" />
         <CheckBox
             android:text="@string/filter_3"
             android:textSize="12dp"
@@ -40,7 +41,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_poissonnerie"
-            android:id="@+id/filter3" />
+            android:id="@+id/filter3"
+            local:MvxBind="Checked FilterPoissonneriesIsChecked" />
         <CheckBox
             android:text="@string/filter_4"
             android:textSize="12dp"
@@ -50,7 +52,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_fromagerie"
-            android:id="@+id/filter4" />
+            android:id="@+id/filter4"
+            local:MvxBind="Checked FilterFromageriesIsChecked" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,7 +70,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_traiteur"
-            android:id="@+id/filter5" />
+            android:id="@+id/filter5"
+            local:MvxBind="Checked FilterTraiteursIsChecked" />
         <CheckBox
             android:text="@string/filter_6"
             android:textSize="12dp"
@@ -77,7 +81,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_glacier"
-            android:id="@+id/filter6" />
+            android:id="@+id/filter6"
+            local:MvxBind="Checked FilterGlaciersIsChecked" />
         <CheckBox
             android:text="@string/filter_7"
             android:textSize="12dp"
@@ -87,7 +92,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_chocolatier"
-            android:id="@+id/filter7" />
+            android:id="@+id/filter7"
+            local:MvxBind="Checked FilterChocolatiersIsChecked" />
         <CheckBox
             android:text="@string/filter_8"
             android:textSize="12dp"
@@ -97,7 +103,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_boulangerie_patisserie"
-            android:id="@+id/filter8" />
+            android:id="@+id/filter8"
+            local:MvxBind="Checked FilterBoulangeriesPatisseriesIsChecked" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -136,7 +143,8 @@
             android:gravity="center"
             android:button="@null"
             android:drawableTop="@drawable/checkbox_restaurant"
-            android:id="@+id/filter11" />
+            android:id="@+id/filter11"
+            local:MvxBind="Checked FilterRestaurantsIsChecked" />
         <CheckBox
             android:text="@string/filter_12"
             android:textSize="12dp"
