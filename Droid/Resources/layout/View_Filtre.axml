@@ -145,7 +145,7 @@
             android:drawableTop="@drawable/checkbox_fromagerie"
             android:id="@+id/filter4"
             local:MvxBind="Checked FilterFromageriesIsChecked" />
-    <!--<CheckBox
+        <CheckBox
             android:text="@string/filter_1"
             android:textSize="12dp"
             android:layout_width="0dp"
@@ -155,15 +155,16 @@
             android:button="@null"
             android:drawableTop="@drawable/checkbox_nofiltre"
             android:id="@+id/filter1"
-            local:MvxBind="Click AucunFiltre" />-->
-        <Button
+            local:MvxBind="Checked AucunFiltre;Enabled EnableCheck" />
+    <!--<Button
             android:text="@string/filter_1"
+			android:background="@mipmap/pin_nofiltre_ok"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/filter1"
             android:gravity="center"
-            local:MvxBind="Click AucunFiltreBind;Enabled AucunFiltreBool" />
+            local:MvxBind="Click AucunFiltreBind;Enabled AucunFiltreBool" />-->
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -177,7 +178,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/FilterOkBtn"
-            local:MvxBind="Click SendFiltre;Enabled AucunFiltreBool" />
+            local:MvxBind="Click SendFiltre; Enabled EnableCheck" />
         <Button
             android:text="@string/button_cancel"
             android:layout_width="wrap_content"

@@ -187,7 +187,7 @@ namespace PocAlim.Droid.View
 
 		public void OnInfoWindowClick(Marker marker)
 		{
-			if(marker.Title.Equals(_pointClick.Title))
+			if (marker.Equals(_pointClick))
 			Toast.MakeText(this, "fonction à développer ", ToastLength.Short).Show();
 
 		}
@@ -206,9 +206,9 @@ namespace PocAlim.Droid.View
 			_gMap.MoveCamera(CameraUpdateFactory.NewLatLng(marker.Position));
 
 			//affichage des infos
-			//marker.ShowInfoWindow();
+			marker.ShowInfoWindow();
 
-			StartActivity(typeof(FragmentTest));
+			//StartActivity(typeof(FragmentTest));
 
 		}
 
@@ -263,10 +263,27 @@ namespace PocAlim.Droid.View
 							if (marker.Activites[0].NomActivite.Contains("Alimentation Generale"))
 								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_alimentation_generale));
 							else if (marker.Activites[0].NomActivite.Contains("Charcuteries"))
-								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries));
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries_boucheries));
+							else if (marker.Activites[0].NomActivite.Contains("Boucheries"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries_boucheries));
 							else if (marker.Activites[0].NomActivite.Contains("Restauration Collective"))
 								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_restauration_collective));
+							else if (marker.Activites[0].NomActivite.Contains("Restaurants"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_restaurant));
+							else if (marker.Activites[0].NomActivite.Contains("Boulangeries Patisseries"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_boulangerie));
+							else if (marker.Activites[0].NomActivite.Contains("Chocolatiers"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_chocolatier));
+							else if (marker.Activites[0].NomActivite.Contains("Glaciers"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_glacier));
+							else if (marker.Activites[0].NomActivite.Contains("Traiteurs"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_traiteur));
+							else if (marker.Activites[0].NomActivite.Contains("Fromageries"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_fromagerie));
+							else if (marker.Activites[0].NomActivite.Contains("Poissonneries"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_poissonnerie));
 							break;
+							
 						default:
 							break;
 					}

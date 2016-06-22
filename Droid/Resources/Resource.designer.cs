@@ -2384,97 +2384,118 @@ namespace PocAlim.Droid
 			public const int marker_alimentation_generale = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int marker_charcuteries = 2130903042;
+			public const int marker_boulangerie = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int marker_generique = 2130903043;
+			public const int marker_charcuteries_boucheries = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int marker_restauration_collective = 2130903044;
+			public const int marker_chocolatier = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int marker_supermarches_hypermarches = 2130903045;
+			public const int marker_fromagerie = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int pin_alimentation_generale = 2130903046;
+			public const int marker_generique = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int pin_alimentation_generale_off = 2130903047;
+			public const int marker_glacier = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int pin_boucherie = 2130903048;
+			public const int marker_poissonnerie = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int pin_boucherie_off = 2130903049;
+			public const int marker_restaurant = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int pin_boulangerie_patisserie = 2130903050;
+			public const int marker_restauration_collective = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int pin_boulangerie_patisserie_off = 2130903051;
+			public const int marker_supermarches_hypermarches = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int pin_charcuterie = 2130903052;
+			public const int marker_traiteur = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int pin_charcuterie_off = 2130903053;
+			public const int pin_alimentation_generale = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int pin_chocolatier = 2130903054;
+			public const int pin_alimentation_generale_off = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int pin_chocolatier_off = 2130903055;
+			public const int pin_boucherie = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int pin_fromagerie = 2130903056;
+			public const int pin_boucherie_off = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int pin_fromagerie_off = 2130903057;
+			public const int pin_boulangerie_patisserie = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int pin_glacier = 2130903058;
+			public const int pin_boulangerie_patisserie_off = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int pin_glacier_off = 2130903059;
+			public const int pin_charcuterie = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int pin_nofiltre = 2130903060;
+			public const int pin_charcuterie_off = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int pin_nofiltre_ok = 2130903061;
+			public const int pin_chocolatier = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int pin_poissonnerie = 2130903062;
+			public const int pin_chocolatier_off = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int pin_poissonnerie_off = 2130903063;
+			public const int pin_fromagerie = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int pin_restaurant = 2130903064;
+			public const int pin_fromagerie_off = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int pin_restaurant_off = 2130903065;
+			public const int pin_glacier = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int pin_restauration_collective = 2130903066;
+			public const int pin_glacier_off = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int pin_restauration_collective_off = 2130903067;
+			public const int pin_nofiltre = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int pin_search = 2130903068;
+			public const int pin_nofiltre_ok = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int pin_supermarches_hypermarches = 2130903069;
+			public const int pin_poissonnerie = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int pin_supermarches_hypermarches_off = 2130903070;
+			public const int pin_poissonnerie_off = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int pin_traiteur = 2130903071;
+			public const int pin_restaurant = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int pin_traiteur_off = 2130903072;
+			public const int pin_restaurant_off = 2130903072;
+			
+			// aapt resource value: 0x7f030021
+			public const int pin_restauration_collective = 2130903073;
+			
+			// aapt resource value: 0x7f030022
+			public const int pin_restauration_collective_off = 2130903074;
+			
+			// aapt resource value: 0x7f030023
+			public const int pin_search = 2130903075;
+			
+			// aapt resource value: 0x7f030024
+			public const int pin_supermarches_hypermarches = 2130903076;
+			
+			// aapt resource value: 0x7f030025
+			public const int pin_supermarches_hypermarches_off = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int pin_traiteur = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int pin_traiteur_off = 2130903079;
 			
 			static Mipmap()
 			{

@@ -14,7 +14,6 @@ namespace PocAlim.ViewModels
             _myFilter = filter;
         }
 
-
         private String _paramFiltre;
 
 		public String ParameterFiltre
@@ -25,6 +24,8 @@ namespace PocAlim.ViewModels
 
 		//boolean associé au bouton AUCUN FILTRE et OK
 		private bool _aucunFiltreBool;
+		private bool _enableCheck;
+
 
 		private bool _filterBoucheriesCharcuteriesIsChecked;
 		private bool _filterPoissonneriesIsChecked;
@@ -39,13 +40,23 @@ namespace PocAlim.ViewModels
 		private bool _filterRestaurationCollectiveIsChecked;
 
 
-		public Boolean AucunFiltreBool
+		public Boolean AucunFiltre
 		{
 			get { return _aucunFiltreBool; }
 			set
 			{
 				_aucunFiltreBool = value;
-				RaisePropertyChanged(() => AucunFiltreBool);
+				RaisePropertyChanged(() => AucunFiltre);
+			}
+		}
+
+		public Boolean EnableCheck
+		{
+			get { return _enableCheck; }
+			set
+			{
+				_enableCheck = value;
+				RaisePropertyChanged(() => EnableCheck);
 			}
 		}
 
@@ -173,6 +184,8 @@ namespace PocAlim.ViewModels
 
 		public override void Start()
 		{
+			_enableCheck = true;
+			_aucunFiltreBool = true;
 			_filterBoucheriesCharcuteriesIsChecked = true;
 			_filterPoissonneriesIsChecked = true;
 			_filterFromageriesIsChecked = true;
@@ -190,16 +203,8 @@ namespace PocAlim.ViewModels
 			base.Start();
 		}
 
-		//llistener sur le bouton aucun filtre
-		public ICommand AucunFiltreBind
-		{
-			get
-			{
-				return new MvxCommand(aucunFiltreBind);
-			}
-		}
 
-		public void aucunFiltreBind()
+		public void clearFiltres()
 		{
 			FilterBoucheriesCharcuteriesIsChecked = false;
 			FilterPoissonneriesIsChecked = false;
@@ -212,9 +217,8 @@ namespace PocAlim.ViewModels
 			FilterSupermarchesHypermarchesIsChecked = false;
 			FilterRestaurantsIsChecked = false;
 			FilterRestaurationCollectiveIsChecked = false;
-			AucunFiltreBool = false;
-		}
 
+		}
 
         //On recharge les POI
         //en fonction des checkboxes
@@ -232,14 +236,17 @@ namespace PocAlim.ViewModels
 			                                   FilterRestaurantsIsChecked,
 			                                   FilterRestaurationCollectiveIsChecked);
 
-			//Quand il y a des filtres on active le bouton AUCUNFILTRE
 			if (ParameterFiltre.Length != 0)
-				AucunFiltreBool = true;
-			//sinon on le desactive
-			else
-				AucunFiltreBool = false;
-
+			{
+				AucunFiltre = true;
+				EnableCheck = true;
+			}
+			else {
+				AucunFiltre = false;
+				EnableCheck = false;
+			}
 		}
+
 			
 
 		public ICommand SendFiltre
