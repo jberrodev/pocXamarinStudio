@@ -57,7 +57,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Sogeti France"",
                 ""lattitude"": 48.826870,
                 ""longitude"": 2.271165,
-                ""type"": ""Restauration Collective"",
                 ""adresse"": ""22 rue Gouverneur General Eboue, 92130 Issy Les Moulineaux"",
 				""activites"":
 							[
@@ -73,7 +72,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Quelque part"",
                 ""lattitude"": 48.831772,
                 ""longitude"": 2.262446,
-                ""type"": ""Alimentation Generale"",
                 ""adresse"": ""18, Rue du Test, 92100 Boulogne-Billancourt"",
 				""activites"":
 							[
@@ -86,7 +84,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Quelque part ailleurs"",
                 ""lattitude"": 48.831165,
                 ""longitude"": 2.254237,
-                ""type"": ""Supermarches Hypermarches"",
                 ""adresse"": ""18,rue ailleurs, 92100 Boulogne-Billancourt"",
 				""activites"":
 							[
@@ -99,7 +96,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Quelque part dautre"",
                 ""lattitude"": 48.828851,
                 ""longitude"": 2.266948,
-                ""type"": ""Charcuteries"",
                 ""adresse"": ""123 Avenue dautre part, 92130 Issy Les Moulineaux"",
 				""activites"":
 							[
@@ -112,7 +108,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Hello mon ami"",
                 ""lattitude"": 48.826551,
                 ""longitude"": 2.257548,
-                ""type"": ""Charcuteries"",
                 ""adresse"": ""taime ca manger des papates"",
 				""activites"":
 							[
@@ -125,7 +120,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Dr pepper"",
                 ""lattitude"": 48.822913,
                 ""longitude"": 2.260731,
-                ""type"": ""Charcuteries"",
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
@@ -138,7 +132,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Issy"",
                 ""lattitude"": 48.820138,
                 ""longitude"": 2.255601,
-                ""type"": ""Restauration Collective, Supermarches Hypermarches"",
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
@@ -152,7 +145,6 @@ namespace PocAlim.ViewModels
                 ""nom"": ""Seine"",
                 ""lattitude"": 48.838601,
                 ""longitude"": 2.269233,
-                ""type"": ""Alimentation Generale"",
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
@@ -207,7 +199,6 @@ namespace PocAlim.ViewModels
 					Siret = markerJson.siret,
 					Regroupement = markerJson.regroupement,
 					Nom = markerJson.nom,
-					Type = markerJson.type,
 					Adresse = markerJson.adresse,
 					Activites = targetList
 
@@ -246,8 +237,12 @@ namespace PocAlim.ViewModels
 
 			foreach (MyPOI poi in MarkerList) {
 				for (int i =0; i<Filtre.Length-1;i++) {
-					if (poi.Type.Contains(Filtre[i])) {
-						_markersListFiltre.Add (poi);
+					foreach (var activite in poi.Activites)
+					{
+						if (activite.NomActivite.Contains(Filtre[i]))
+						{
+							_markersListFiltre.Add(poi);
+						}
 					}
 				}
 			}

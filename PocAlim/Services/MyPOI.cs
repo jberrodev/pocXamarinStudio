@@ -14,7 +14,6 @@ namespace PocAlim.Services
 		private String _siret;
 		private int _regroupement; //0 single activité, 1 supermarché, 2 multi activité
         private String _nom;
-        private String _type;
         private String _adresse;
 		public IList<MyPOIActivite> _activites;
 
@@ -44,15 +43,10 @@ namespace PocAlim.Services
 			set { _regroupement = value; RaisePropertyChanged(() => Regroupement); }
 		}
         public String Nom
-        {
-            get { return _nom; }
-            set { _nom = value; RaisePropertyChanged(() => Nom); }
-        }
-        public String Type
-        {
-            get { return _type; }
-            set { _type = value; RaisePropertyChanged(() => Type); }
-        }
+		{
+			get { return _nom; }
+			set { _nom = value; RaisePropertyChanged(() => Nom); }
+		}
         public String Adresse
 		{
 			get { return _adresse; }

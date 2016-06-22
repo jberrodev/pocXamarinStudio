@@ -20,7 +20,6 @@ namespace PocAlim.Services
 		public string nom { get; set; }
         public double lattitude { get; set; }
         public double longitude { get; set; }
-        public string type { get; set; }
         public string adresse { get; set; }
 		public IList<ActiviteJSON> activites { get; set; }
 

@@ -83,7 +83,7 @@ namespace PocAlim.Droid.View
             _gMap = googleMap;
 
 			//Autorisation et positionnement du boutton zoom
-            _gMap.UiSettings.ZoomControlsEnabled = true;
+            //_gMap.UiSettings.ZoomControlsEnabled = true;
 
             //Verification des permissions  de localisation
             checkLocationPermission();
