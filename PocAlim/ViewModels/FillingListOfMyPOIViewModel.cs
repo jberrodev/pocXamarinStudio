@@ -105,25 +105,25 @@ namespace PocAlim.ViewModels
   			{
 				""siret"": ""123458"",	
 				""regroupement"": ""0"",	 
-                ""nom"": ""Hello mon ami"",
+                ""nom"": ""Fromagerie de l'amitié"",
                 ""lattitude"": 48.826551,
                 ""longitude"": 2.257548,
                 ""adresse"": ""taime ca manger des papates"",
 				""activites"":
 							[
-								{ ""nom"": ""Charcuteries"", ""note"": ""Moyen"", ""date"": ""05/06/2016"" }
+								{ ""nom"": ""Fromageries"", ""note"": ""Moyen"", ""date"": ""05/06/2016"" }
 							]
 			},
 			{
 				""siret"": ""12345889"",
 				""regroupement"": ""0"",	 	
-                ""nom"": ""Dr pepper"",
+                ""nom"": ""Poissonnerie de la Gare"",
                 ""lattitude"": 48.822913,
                 ""longitude"": 2.260731,
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
-								{ ""nom"": ""Charcuteries"", ""note"": ""Passable"", ""date"": ""08/06/2016"" }
+								{ ""nom"": ""Poissoneries"", ""note"": ""Passable"", ""date"": ""08/06/2016"" }
 							]
             },
 			{
@@ -142,17 +142,81 @@ namespace PocAlim.ViewModels
 			{
 				""siret"": ""1234522222"",	
 				""regroupement"": ""0"",	 
-                ""nom"": ""Seine"",
+                ""nom"": ""Boucherie de la Seine"",
                 ""lattitude"": 48.838601,
                 ""longitude"": 2.269233,
                 ""adresse"": ""moi non"",
 				""activites"":
 							[
-								{ ""nom"": ""Alimentation Generale"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+								{ ""nom"": ""Boucheries"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
+            },
+			{
+				""siret"": ""1122222"",	
+				""regroupement"": ""0"",	 
+                ""nom"": ""Traiteur de là"",
+                ""lattitude"": 48.821172,
+                ""longitude"": 2.265440,
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Traiteurs"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
+            },
+			{
+				""siret"": ""122122222"",	
+				""regroupement"": ""0"",	 
+                ""nom"": ""Glacier de là"",
+                ""lattitude"": 48.824365,
+                ""longitude"": 2.277118,
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Glaciers"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
+            },
+			{
+				""siret"": ""123122222"",	
+				""regroupement"": ""0"",	 
+                ""nom"": ""Chocolatier de là"",
+                ""lattitude"": 48.824958,
+                ""longitude"": 2.265702,
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Chocolatiers"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
+            },
+			{
+				""siret"": ""22222"",	
+				""regroupement"": ""0"",	 
+                ""nom"": ""Patisserie de là"",
+                ""lattitude"": 48.837682,
+                ""longitude"": 2.257143,
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Boulangeries Patisseries"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
+							]
+
+            },
+			{
+				""siret"": ""22222"",	
+				""regroupement"": ""0"",	 
+                ""nom"": ""Restaurant de là"",
+                ""lattitude"": 48.838840,
+                ""longitude"": 2.263108,
+                ""adresse"": ""moi non"",
+				""activites"":
+							[
+								{ ""nom"": ""Restaurants"", ""note"": ""Bien"", ""date"": ""20/06/2016"" }
 							]
 
             }
-
         ]
     }";
 		//Au lancement du modelView...
