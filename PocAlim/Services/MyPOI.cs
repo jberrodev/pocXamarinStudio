@@ -11,6 +11,8 @@ namespace PocAlim.Services
    public class MyPOI : MvxViewModel
     {
         private GPSCoord _coord;
+		private String _siret;
+		private int _regroupement; //0 single activité, 1 supermarché, 2 multi activité
         private String _nom;
         private String _type;
         private String _adresse;
@@ -20,6 +22,7 @@ namespace PocAlim.Services
 		public MyPOI()
         {
             _coord = Coord;
+			_siret = Siret;
             _nom = Nom;
             _adresse = Adresse;
 			_activites = Activites;
@@ -30,6 +33,16 @@ namespace PocAlim.Services
             get { return _coord; }
             set { _coord = value; RaisePropertyChanged(() => Coord); }
         }
+		public String Siret
+		{
+			get { return _siret; }
+			set { _siret = value; RaisePropertyChanged(() => Siret); }
+		}
+		public int Regroupement
+		{
+			get { return _regroupement; }
+			set { _regroupement = value; RaisePropertyChanged(() => Regroupement); }
+		}
         public String Nom
         {
             get { return _nom; }

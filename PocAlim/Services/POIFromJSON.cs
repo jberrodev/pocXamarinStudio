@@ -15,7 +15,9 @@ namespace PocAlim.Services
 
     public class POIJSON
     {
-        public string nom { get; set; }
+		public string siret { get; set; }
+		public int regroupement { get; set; } //0 single activité, 1 supermarché, 2 multi activité
+		public string nom { get; set; }
         public double lattitude { get; set; }
         public double longitude { get; set; }
         public string type { get; set; }

@@ -104,7 +104,7 @@
     <Compile Include="View\FilterView.cs" />
     <Compile Include="View\MyMapView.cs" />
     <Compile Include="View\Splash.cs" />
-    <Compile Include="InfoPopupView.cs" />
+    <Compile Include="View\InfoPopupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

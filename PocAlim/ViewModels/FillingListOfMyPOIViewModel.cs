@@ -17,6 +17,10 @@ namespace PocAlim.ViewModels
 
 		//Liste chargée depuis le Json
 		private List<MyPOI> _markerslist;
+		//Liste filtrée et utilisée par les view
+		private List<MyPOI> _markersListFiltre;
+		//Valeur des filtres reçus FilterViewModel
+		private string[] _filtre;
 
         public List<MyPOI> MarkerList
         {
@@ -24,17 +28,11 @@ namespace PocAlim.ViewModels
             set { _markerslist = value; RaisePropertyChanged(() => MarkerList); }
         }
 
-		//Liste filtrée et utilisée par les view
-		private List<MyPOI> _markersListFiltre;
-
 		public List<MyPOI> MarkerListFiltre
 		{
 			get { return _markersListFiltre; }
 			set { _markersListFiltre = value; RaisePropertyChanged(() => MarkerListFiltre); }
 		}
-
-		//Valeur des filtres reçus FilterViewModel
-		private string[] _filtre;
 
 		public String[] Filtre
 		{
@@ -42,20 +40,20 @@ namespace PocAlim.ViewModels
 			set { _filtre = value; RaisePropertyChanged(() => Filtre); }
 		}
 
-		//Temoin d'affichage #debugging
-		private string _temoin;
-
-		public String Temoin
-		{
-			get { return _temoin; }
-			set { _temoin = value; RaisePropertyChanged(() => Temoin); }
-		}
-
 		//Liste de POi à remplacer par un Json local 
-        string jsonString2 = @"
+		//****//
+		//	pour regroupement : 
+		//	0 single activité,
+		//	1 supermarché,
+		//	2 multi activité
+		//***//
+
+		string jsonString2 = @"
     {
         ""data"": [
             {
+				""siret"": ""12345"",
+				""regroupement"": ""0"",	 
                 ""nom"": ""Sogeti France"",
                 ""lattitude"": 48.826870,
                 ""longitude"": 2.271165,
@@ -70,6 +68,8 @@ namespace PocAlim.ViewModels
 							]
             },
             {
+				""siret"": ""123455"",	
+				""regroupement"": ""0"",	 
                 ""nom"": ""Quelque part"",
                 ""lattitude"": 48.831772,
                 ""longitude"": 2.262446,
@@ -81,6 +81,8 @@ namespace PocAlim.ViewModels
 							]
             },
             {
+				""siret"": ""123456"",
+				""regroupement"": ""1"",	 
                 ""nom"": ""Quelque part ailleurs"",
                 ""lattitude"": 48.831165,
                 ""longitude"": 2.254237,
@@ -92,6 +94,8 @@ namespace PocAlim.ViewModels
 							]
             },
             {
+				""siret"": ""123457"",	
+				""regroupement"": ""0"",	 
                 ""nom"": ""Quelque part dautre"",
                 ""lattitude"": 48.828851,
                 ""longitude"": 2.266948,
@@ -103,6 +107,8 @@ namespace PocAlim.ViewModels
 							]
             },
   			{
+				""siret"": ""123458"",	
+				""regroupement"": ""0"",	 
                 ""nom"": ""Hello mon ami"",
                 ""lattitude"": 48.826551,
                 ""longitude"": 2.257548,
@@ -114,6 +120,8 @@ namespace PocAlim.ViewModels
 							]
 			},
 			{
+				""siret"": ""12345889"",
+				""regroupement"": ""0"",	 	
                 ""nom"": ""Dr pepper"",
                 ""lattitude"": 48.822913,
                 ""longitude"": 2.260731,
@@ -125,6 +133,8 @@ namespace PocAlim.ViewModels
 							]
             },
 			{
+				""siret"": ""1234115"",	
+				""regroupement"": ""2"",	 
                 ""nom"": ""Issy"",
                 ""lattitude"": 48.820138,
                 ""longitude"": 2.255601,
@@ -137,6 +147,8 @@ namespace PocAlim.ViewModels
 							]
             },
 			{
+				""siret"": ""1234522222"",	
+				""regroupement"": ""0"",	 
                 ""nom"": ""Seine"",
                 ""lattitude"": 48.838601,
                 ""longitude"": 2.269233,
@@ -192,6 +204,8 @@ namespace PocAlim.ViewModels
 				var marker = new MyPOI()
 				{
 					Coord = new GPSCoord() { Lat = markerJson.lattitude, Lng = markerJson.longitude },
+					Siret = markerJson.siret,
+					Regroupement = markerJson.regroupement,
 					Nom = markerJson.nom,
 					Type = markerJson.type,
 					Adresse = markerJson.adresse,

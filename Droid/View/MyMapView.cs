@@ -30,7 +30,9 @@ namespace PocAlim.Droid.View
 		private bool _isGooglePlayServicesInstalled;
 
         private GoogleMap _gMap;
+		//marqueur temporaire pour la boucle d'ajout
         private Marker _marker;
+		//Point cliqué par l'utilisateur
 		private Marker _pointClick;
         LocationManager _locationManager;
 
@@ -247,19 +249,26 @@ namespace PocAlim.Droid.View
                     option.SetPosition(new LatLng(marker.Coord.Lat, marker.Coord.Lng));
                     option.SetTitle(marker.Nom);
 
-					//le poi possède au moins deux type
-					if (marker.Type.Contains (","))
-					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_generique));
-					
-				//le poi ne possède qu'un type
-				    else if (marker.Type.Contains("Restauration Collective"))
-					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_restauration_collective));
-					else if (marker.Type.Contains("Alimentation Generale"))
-					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_alimentation_generale));
-					else if (marker.Type.Contains("Supermarches Hypermarches"))
-					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_supermarches_hypermarches));
-					else if (marker.Type.Contains("Charcuteries"))
-					option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries));
+					switch(marker.Regroupement)
+					{
+						case 2:
+							option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_generique));
+							break;
+						case 1:
+							option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_supermarches_hypermarches));
+							break;
+						case 0:
+							if (marker.Activites[0].NomActivite.Contains("Alimentation Generale"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_alimentation_generale));
+							else if (marker.Activites[0].NomActivite.Contains("Charcuteries"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_charcuteries));
+							else if (marker.Activites[0].NomActivite.Contains("Restauration Collective"))
+								option.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.marker_restauration_collective));
+							break;
+						default:
+							break;
+					}
+
 
 					if (_gMap != null) {
 						_marker = _gMap.AddMarker (option);
