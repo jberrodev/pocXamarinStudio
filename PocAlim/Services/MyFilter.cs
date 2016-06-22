@@ -8,8 +8,7 @@ namespace PocAlim.Services
 {
     public class MyFilter : IMyFilter
     {
-		public String Reload(bool filtreCharcuteriesIsChecked,
-		                     bool filtreBoucheriesIsChecked,
+		public String Reload(bool filtreBoucheriesCharcuteriesIsChecked,
 		                     bool filtrePoissonneriesIsChecked,
 		                     bool filtreFromageriesIsChecked,
 		                     bool filtreTraiteursIsChecked,
@@ -24,10 +23,8 @@ namespace PocAlim.Services
          
 			String list = "";
 
-			if (filtreCharcuteriesIsChecked)
-				list += "Charcuteries,";
-			if (filtreBoucheriesIsChecked)
-				list += "Boucheries,";
+			if (filtreBoucheriesCharcuteriesIsChecked)
+				list += "Boucheries,Charcuteries,";
 			if (filtrePoissonneriesIsChecked)
 				list += "Poissonneries,";
 			if (filtreFromageriesIsChecked)

@@ -3,8 +3,8 @@
   <string name="map_key">AIzaSyClWnAidogSdOwKBJDtBIyPiPYLcK7RQlc</string>
   <string name="app_name">POC MVVM ALIM</string>
   <string name="filter_button_text">FILTRER</string>
-  <string name="filter_1">Charcuteries</string>
-  <string name="filter_2">Boucheries</string>
+  <string name="filter_1">Aucun Filtre</string>
+  <string name="filter_2">Boucheries Charcuteries</string>
   <string name="filter_3">Poissoneries</string>
   <string name="filter_4">Fromageries</string>
   <string name="filter_5">Traiteurs</string>

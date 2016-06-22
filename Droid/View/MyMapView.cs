@@ -34,6 +34,8 @@ namespace PocAlim.Droid.View
         private Marker _marker;
 		//Point cliqué par l'utilisateur
 		private Marker _pointClick;
+
+		//pour le gps checking
         LocationManager _locationManager;
 
 
@@ -301,20 +303,15 @@ namespace PocAlim.Droid.View
 		{
 			base.OnResume();
 
-			Toast.MakeText(this, "onresume 1", ToastLength.Short).Show();
+			//pour le cas où l'utilisateur revient sur l'appli
+			//directement après la MAJ des google play services
 			_isGooglePlayServicesInstalled = TestIfGooglePlayServicesIsInstalled();
-			Toast.MakeText(this, "onresume 2", ToastLength.Short).Show();
-
 			if (_isGooglePlayServicesInstalled)
 			{
 				FrameLayout myLayout = (FrameLayout)FindViewById(Resource.Id.myLayout);
 				if (myLayout.Visibility == ViewStates.Invisible)
 					myLayout.Visibility = ViewStates.Visible;
-				Toast.MakeText(this, "onresume 3", ToastLength.Short).Show();
-
 			}
-			Toast.MakeText(this, "onresume 4", ToastLength.Short).Show();
-
 		}
 
 	}

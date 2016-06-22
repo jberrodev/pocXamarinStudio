@@ -11,108 +11,6 @@
         android:layout_marginTop="10dp"
         android:weightSum="4">
         <CheckBox
-            android:text="@string/filter_1"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_charcuterie"
-            android:id="@+id/filter1"
-            local:MvxBind="Checked FilterCharcuteriesIsChecked" />
-        <CheckBox
-            android:text="@string/filter_2"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_boucherie"
-            android:id="@+id/filter2"
-            local:MvxBind="Checked FilterBoucheriesIsChecked" />
-        <CheckBox
-            android:text="@string/filter_3"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_poissonnerie"
-            android:id="@+id/filter3"
-            local:MvxBind="Checked FilterPoissonneriesIsChecked" />
-        <CheckBox
-            android:text="@string/filter_4"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_fromagerie"
-            android:id="@+id/filter4"
-            local:MvxBind="Checked FilterFromageriesIsChecked" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:weightSum="4">
-        <CheckBox
-            android:text="@string/filter_5"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_traiteur"
-            android:id="@+id/filter5"
-            local:MvxBind="Checked FilterTraiteursIsChecked" />
-        <CheckBox
-            android:text="@string/filter_6"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_glacier"
-            android:id="@+id/filter6"
-            local:MvxBind="Checked FilterGlaciersIsChecked" />
-        <CheckBox
-            android:text="@string/filter_7"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_chocolatier"
-            android:id="@+id/filter7"
-            local:MvxBind="Checked FilterChocolatiersIsChecked" />
-        <CheckBox
-            android:text="@string/filter_8"
-            android:textSize="12dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:button="@null"
-            android:drawableTop="@drawable/checkbox_boulangerie_patisserie"
-            android:id="@+id/filter8"
-            local:MvxBind="Checked FilterBoulangeriesPatisseriesIsChecked" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:weightSum="4">
-        <CheckBox
             android:text="@string/filter_9"
             android:textSize="12dp"
             android:layout_width="0dp"
@@ -161,6 +59,116 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:weightSum="4">
+        <CheckBox
+            android:text="@string/filter_5"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_traiteur"
+            android:id="@+id/filter5"
+            local:MvxBind="Checked FilterTraiteursIsChecked" />
+        <CheckBox
+            android:text="@string/filter_6"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_glacier"
+            android:id="@+id/filter6"
+            local:MvxBind="Checked FilterGlaciersIsChecked" />
+        <CheckBox
+            android:text="@string/filter_2"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_boucherie"
+            android:id="@+id/filter2"
+            local:MvxBind="Checked FilterBoucheriesCharcuteriesIsChecked" />
+        <CheckBox
+            android:text="@string/filter_3"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_poissonnerie"
+            android:id="@+id/filter3"
+            local:MvxBind="Checked FilterPoissonneriesIsChecked" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:weightSum="4">
+        <CheckBox
+            android:text="@string/filter_7"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_chocolatier"
+            android:id="@+id/filter7"
+            local:MvxBind="Checked FilterChocolatiersIsChecked" />
+        <CheckBox
+            android:text="@string/filter_8"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_boulangerie_patisserie"
+            android:id="@+id/filter8"
+            local:MvxBind="Checked FilterBoulangeriesPatisseriesIsChecked" />
+        <CheckBox
+            android:text="@string/filter_4"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_fromagerie"
+            android:id="@+id/filter4"
+            local:MvxBind="Checked FilterFromageriesIsChecked" />
+    <!--<CheckBox
+            android:text="@string/filter_1"
+            android:textSize="12dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:button="@null"
+            android:drawableTop="@drawable/checkbox_nofiltre"
+            android:id="@+id/filter1"
+            local:MvxBind="Click AucunFiltre" />-->
+        <Button
+            android:text="@string/filter_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/filter1"
+            android:gravity="center"
+            local:MvxBind="Click AucunFiltreBind;Enabled AucunFiltreBool" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:weightSum="4"
         android:layout_marginTop="25dp"
         android:gravity="center_horizontal">
@@ -169,7 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/FilterOkBtn"
-            local:MvxBind="Click SendFiltre" />
+            local:MvxBind="Click SendFiltre;Enabled AucunFiltreBool" />
         <Button
             android:text="@string/button_cancel"
             android:layout_width="wrap_content"

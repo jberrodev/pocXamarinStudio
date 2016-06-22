@@ -17,7 +17,7 @@ using Android.Support.V4.View;
 
 namespace PocAlim.Droid.View
 {
-    public class CustomMarkerPopupAdapter : FragmentActivity, GoogleMap.IInfoWindowAdapter
+	public class CustomMarkerPopupAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
     {
         private LayoutInflater _layoutInflater = null;
         

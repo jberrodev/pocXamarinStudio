@@ -14,25 +14,6 @@ namespace PocAlim.ViewModels
             _myFilter = filter;
         }
 
-        public override void Start()
-        {
-			_filterCharcuteriesIsChecked = false;
-			_filterBoucheriesIsChecked = false;
-			_filterPoissonneriesIsChecked = false;
-			_filterFromageriesIsChecked = false;
-			_fitlerTraiteursIsChecked = false;
-			_filterGlaciersIsChecked = false;
-			_filterChocolatiersIsChecked = false;
-			_filterBoulangeriesPatisseriesIsChecked = false;
-			_filterAlimentationGeneraleIsChecked = false;
-			_filterSupermarchesHypermarchesIsChecked = false;
-			_filterRestaurantsIsChecked = false;
-			_filterRestaurationCollectiveIsChecked = false;
-
-			Recalculate ();
-
-			base.Start();
-        }
 
         private String _paramFiltre;
 
@@ -42,8 +23,10 @@ namespace PocAlim.ViewModels
             set { _paramFiltre = value; RaisePropertyChanged(() => ParameterFiltre); }
         }
 
-		private bool _filterCharcuteriesIsChecked;
-		private bool _filterBoucheriesIsChecked;
+		//boolean associé au bouton AUCUN FILTRE et OK
+		private bool _aucunFiltreBool;
+
+		private bool _filterBoucheriesCharcuteriesIsChecked;
 		private bool _filterPoissonneriesIsChecked;
 		private bool _filterFromageriesIsChecked;
 		private bool _fitlerTraiteursIsChecked;
@@ -55,24 +38,24 @@ namespace PocAlim.ViewModels
 		private bool _filterRestaurantsIsChecked;
 		private bool _filterRestaurationCollectiveIsChecked;
 
-		public Boolean FilterCharcuteriesIsChecked
+
+		public Boolean AucunFiltreBool
 		{
-			get { return _filterCharcuteriesIsChecked; }
+			get { return _aucunFiltreBool; }
 			set
 			{
-				_filterCharcuteriesIsChecked = value;
-				RaisePropertyChanged(() => FilterCharcuteriesIsChecked);
-				Recalculate();
+				_aucunFiltreBool = value;
+				RaisePropertyChanged(() => AucunFiltreBool);
 			}
 		}
 
-		public Boolean FilterBoucheriesIsChecked
+		public Boolean FilterBoucheriesCharcuteriesIsChecked
 		{
-			get { return _filterBoucheriesIsChecked; }
+			get { return _filterBoucheriesCharcuteriesIsChecked; }
 			set
 			{
-				_filterBoucheriesIsChecked = value;
-				RaisePropertyChanged(() => FilterBoucheriesIsChecked);
+				_filterBoucheriesCharcuteriesIsChecked = value;
+				RaisePropertyChanged(() => FilterBoucheriesCharcuteriesIsChecked);
 				Recalculate();
 			}
 		}
@@ -188,14 +171,56 @@ namespace PocAlim.ViewModels
         }
 
 
+		public override void Start()
+		{
+			_filterBoucheriesCharcuteriesIsChecked = true;
+			_filterPoissonneriesIsChecked = true;
+			_filterFromageriesIsChecked = true;
+			_fitlerTraiteursIsChecked = false;
+			_filterGlaciersIsChecked = false;
+			_filterChocolatiersIsChecked = false;
+			_filterBoulangeriesPatisseriesIsChecked = false;
+			_filterAlimentationGeneraleIsChecked = false;
+			_filterSupermarchesHypermarchesIsChecked = true;
+			_filterRestaurantsIsChecked = true;
+			_filterRestaurationCollectiveIsChecked = false;
+
+			Recalculate();
+
+			base.Start();
+		}
+
+		//llistener sur le bouton aucun filtre
+		public ICommand AucunFiltreBind
+		{
+			get
+			{
+				return new MvxCommand(aucunFiltreBind);
+			}
+		}
+
+		public void aucunFiltreBind()
+		{
+			FilterBoucheriesCharcuteriesIsChecked = false;
+			FilterPoissonneriesIsChecked = false;
+			FilterFromageriesIsChecked = false;
+			FilterTraiteursIsChecked = false;
+			FilterGlaciersIsChecked = false;
+			FilterChocolatiersIsChecked = false;
+			FilterBoulangeriesPatisseriesIsChecked = false;
+			FilterAlimentationGeneraleIsChecked = false;
+			FilterSupermarchesHypermarchesIsChecked = false;
+			FilterRestaurantsIsChecked = false;
+			FilterRestaurationCollectiveIsChecked = false;
+			AucunFiltreBool = false;
+		}
 
 
         //On recharge les POI
         //en fonction des checkboxes
         private void Recalculate()
         { 
-			ParameterFiltre = _myFilter.Reload(FilterCharcuteriesIsChecked,
-			                                   FilterBoucheriesIsChecked,
+			ParameterFiltre = _myFilter.Reload(FilterBoucheriesCharcuteriesIsChecked,
 			                                   FilterPoissonneriesIsChecked,
 			                                   FilterFromageriesIsChecked,
 			                                   FilterTraiteursIsChecked,
@@ -206,6 +231,14 @@ namespace PocAlim.ViewModels
 			                                   FilterSupermarchesHypermarchesIsChecked,
 			                                   FilterRestaurantsIsChecked,
 			                                   FilterRestaurationCollectiveIsChecked);
+
+			//Quand il y a des filtres on active le bouton AUCUNFILTRE
+			if (ParameterFiltre.Length != 0)
+				AucunFiltreBool = true;
+			//sinon on le desactive
+			else
+				AucunFiltreBool = false;
+
 		}
 			
 

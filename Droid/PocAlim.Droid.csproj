@@ -290,6 +290,17 @@
     <AndroidResource Include="Resources\drawable\pin_search.png" />
     <AndroidResource Include="Resources\layout\View_Caroussel.axml" />
     <AndroidResource Include="Resources\layout\View_Info_Popup.axml" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\pin_nofiltre.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\pin_nofiltre.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\pin_nofiltre.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\pin_nofiltre.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\pin_nofiltre.png" />
+    <AndroidResource Include="Resources\drawable\checkbox_nofiltre.xml" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\pin_nofiltre_ok.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\pin_nofiltre_ok.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\pin_nofiltre_ok.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\pin_nofiltre_ok.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\pin_nofiltre_ok.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

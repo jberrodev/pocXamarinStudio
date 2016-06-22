@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-  <item android:drawable="@mipmap/pin_fromagerie_off"
+  <item android:drawable="@mipmap/pin_nofiltre"
         android:state_checked="false"/>
-  <item android:drawable="@mipmap/pin_fromagerie"
+  <item android:drawable="@mipmap/pin_nofiltre_ok"
         android:state_checked="true"/>
-  <item android:drawable="@mipmap/pin_fromagerie"/>
+  <item android:drawable="@mipmap/pin_nofiltre"/>
 </selector>
