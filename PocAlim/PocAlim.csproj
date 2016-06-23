@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Services\database.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

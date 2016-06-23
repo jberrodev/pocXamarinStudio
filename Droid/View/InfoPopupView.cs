@@ -16,15 +16,19 @@ using PocAlim.Droid.View;
 namespace PocAlim.Droid.View
 {
 	[Activity(Theme = "@style/MyTheme.Popup")]
-	public class FragmentTest : FragmentActivity
+	public class InfoPopupView : FragmentActivity
 	{
+
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.View_Info_Popup);
 
+
 			var _carrousselViewPager = FindViewById<ViewPager>(Resource.Id.myCaroussel);
 			_carrousselViewPager.Adapter = new CarousselFragmentAdapter(SupportFragmentManager);
+
 
 		}
 	}

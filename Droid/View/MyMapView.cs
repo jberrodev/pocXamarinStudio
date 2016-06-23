@@ -206,9 +206,9 @@ namespace PocAlim.Droid.View
 			_gMap.MoveCamera(CameraUpdateFactory.NewLatLng(marker.Position));
 
 			//affichage des infos
-			marker.ShowInfoWindow();
+			//marker.ShowInfoWindow();
 
-			//StartActivity(typeof(FragmentTest));
+			StartActivity(typeof(InfoPopupView));
 
 		}
 
