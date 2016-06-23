@@ -226,7 +226,7 @@ namespace PocAlim.Droid.View
         //Position de départ de la camera
         public void moveCameraStart()
         {
-                LatLng location = new LatLng(48.828808,2.261146);
+			LatLng location = new LatLng(ViewModel.MyPositionCoord.Lat,ViewModel.MyPositionCoord.Lng);
                 CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
                 builder.Target(location);
                 builder.Zoom(14);

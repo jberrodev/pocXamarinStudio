@@ -9,11 +9,13 @@ namespace PocAlim.ViewModels
     public class FilterViewModel : MvxViewModel
     {
         private readonly IMyFilter _myFilter;
+
         public FilterViewModel (IMyFilter filter)
         {
             _myFilter = filter;
         }
 
+		//sera envoyé à au viewmodel 1
         private String _paramFiltre;
 
 		public String ParameterFiltre

@@ -14,6 +14,12 @@ namespace PocAlim.ViewModels
 {
     public class FillingListOfMyPOIViewModel : MvxViewModel
 	{
+		private readonly IMyLocation _myLocation;
+
+		public FillingListOfMyPOIViewModel(IMyLocation location)
+		{
+			_myLocation = location;
+		}
 
 		//Liste chargée depuis le Json
 		private List<MyPOI> _markerslist;
@@ -21,6 +27,8 @@ namespace PocAlim.ViewModels
 		private List<MyPOI> _markersListFiltre;
 		//Valeur des filtres reçus FilterViewModel
 		private string[] _filtre;
+		//coordonnées de l'appareil
+		private GPSCoord _myPositionCoord;
 
         public List<MyPOI> MarkerList
         {
@@ -38,6 +46,11 @@ namespace PocAlim.ViewModels
 		{
 			get { return _filtre; }
 			set { _filtre = value; RaisePropertyChanged(() => Filtre); }
+		}
+		public GPSCoord MyPositionCoord
+		{
+			get { return _myPositionCoord; }
+			set { _myPositionCoord = value; RaisePropertyChanged(() => MyPositionCoord); }
 		}
 
 		//Liste de POi à remplacer par un Json local 
@@ -224,6 +237,9 @@ namespace PocAlim.ViewModels
         {
             _markerslist = new List<MyPOI>();
 			_markersListFiltre = new List<MyPOI>();
+
+			//On récupère la position
+			MyPositionCoord = _myLocation.GetPositionCoord();
 
             //On parcours le résultat en remplissant la liste
             //de Markers qui sera utilisée par les couches natives

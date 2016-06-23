@@ -11,6 +11,8 @@ namespace PocAlim
 		public App ()
 		{
 			Mvx.RegisterType<IMyFilter, MyFilter>();
+			Mvx.RegisterType<IMyLocation, MyLocation>();
+
 			Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<FillingListOfMyPOIViewModel>());
 		}
 

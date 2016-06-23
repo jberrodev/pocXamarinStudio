@@ -38,6 +38,8 @@
     <Compile Include="Services\IMyFiler.cs" />
     <Compile Include="Services\MyFilter.cs" />
     <Compile Include="Services\MyPOI.cs" />
+    <Compile Include="Services\IMyLocation.cs" />
+    <Compile Include="Services\MyLocation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
