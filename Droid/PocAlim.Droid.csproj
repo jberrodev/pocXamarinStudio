@@ -125,7 +125,6 @@
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
-    <AndroidResource Include="Resources\drawable\bubble_info.png" />
     <AndroidResource Include="Resources\drawable\checkbox_alimentation_generale.xml" />
     <AndroidResource Include="Resources\drawable\checkbox_restauration_collective.xml" />
     <AndroidResource Include="Resources\drawable\checkbox_supermarches.xml" />
@@ -279,9 +278,7 @@
     <AndroidResource Include="Resources\drawable\checkbox_glacier.xml" />
     <AndroidResource Include="Resources\drawable\checkbox_boulangerie_patisserie.xml" />
     <AndroidResource Include="Resources\drawable\background_btn_ok_filter.xml" />
-    <AndroidResource Include="Resources\drawable\background_btn_round.xml" />
     <AndroidResource Include="Resources\mipmap-mdpi\pin_search.png" />
-    <AndroidResource Include="Resources\drawable\pin_search.png" />
     <AndroidResource Include="Resources\layout\View_Caroussel.axml" />
     <AndroidResource Include="Resources\layout\View_Info_Popup.axml" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\pin_nofiltre.png" />
@@ -336,6 +333,39 @@
     <AndroidResource Include="Resources\mipmap-hdpi\marker_chocolatier.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\marker_charcuteries_boucheries.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\marker_boulangerie.png" />
+    <AndroidResource Include="Resources\drawable\button_menu.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_search_normal.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_search_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_search_normal.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_search_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_search_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_search_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_search_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_search_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_search_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_search_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_menu_close.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_refresh_normal.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_refresh_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_menu_close.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_refresh_normal.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_refresh_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_menu_close.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_refresh_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_refresh_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_menu_close.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_refresh_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_refresh_pressed.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_menu_close.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_refresh_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_refresh_pressed.png" />
+    <AndroidResource Include="Resources\drawable\button_search.xml" />
+    <AndroidResource Include="Resources\drawable\button_refresh.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />

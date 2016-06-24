@@ -26,21 +26,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal" />
         <Button
-            android:text="@string/menu_btn_text"
+            android:background="@drawable/button_menu"
             android:id="@+id/menuBtn"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left" />
-        <ImageButton
+        <Button
+            android:background="@drawable/button_refresh"
+            android:id="@+id/refreshBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/pin_search"
-            android:background="@drawable/background_btn_round"
-            android:padding="15dp"
-            android:id="@+id/button1"
-            android:layout_gravity="bottom|right"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_gravity="right" />
+        <Button
+            android:background="@drawable/button_search"
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right" />
     </FrameLayout>
 </FrameLayout>

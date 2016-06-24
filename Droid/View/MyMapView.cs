@@ -123,9 +123,11 @@ namespace PocAlim.Droid.View
             if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation)
                 == (int)Permission.Granted)
             {
+               /*
                 //Affichage du Bouton de localisation google
                 _gMap.MyLocationEnabled = true;
                 _gMap.SetOnMyLocationButtonClickListener(this);
+				*/
             }
             else
             {
