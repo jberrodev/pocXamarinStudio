@@ -38,9 +38,13 @@ namespace PocAlim.Droid.View
 		//pour le gps checking
         LocationManager _locationManager;
 
+		public MyMapView()
+		{
 
-        //Specification du ViewModel
-        public new FillingListOfMyPOIViewModel ViewModel
+		}
+
+		//Specification du ViewModel
+		public new FillingListOfMyPOIViewModel ViewModel
         {
             get { return (FillingListOfMyPOIViewModel)base.ViewModel; }
             set { base.ViewModel = value; }

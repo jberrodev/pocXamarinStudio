@@ -18,7 +18,10 @@ namespace PocAlim.Droid
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, Icon = "@drawable/splash_logo")]
     public class Splash : MvxSplashScreenActivity
     {
-      
+      public Splash()
+		{
+
+		}
     }
 
 }
