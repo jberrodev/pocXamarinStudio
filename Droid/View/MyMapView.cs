@@ -106,6 +106,7 @@ namespace PocAlim.Droid.View
 			//infopopoupwindows custom
 			//_gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
 			_gMap.SetOnInfoWindowClickListener(this);
+
         }
 
 		//verification de l'état de la connexion
