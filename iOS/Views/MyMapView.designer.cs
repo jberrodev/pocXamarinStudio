@@ -11,17 +11,18 @@ using UIKit;
 
 namespace PocAlim.iOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("MyMapView")]
+    partial class MyMapView
     {
         [Outlet]
-        UIKit.UIButton Button { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel Temoin { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (Button != null) {
-                Button.Dispose ();
-                Button = null;
+            if (Temoin != null) {
+                Temoin.Dispose ();
+                Temoin = null;
             }
         }
     }
