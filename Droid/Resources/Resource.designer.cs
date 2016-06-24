@@ -2714,9 +2714,6 @@ namespace PocAlim.Droid
 			// aapt resource value: 0x7f060045
 			public const int menu_btn_text = 2131099717;
 			
-			// aapt resource value: 0x7f060046
-			public const int refresh_btn_text = 2131099718;
-			
 			// aapt resource value: 0x7f060044
 			public const int search_btn_text = 2131099716;
 			
