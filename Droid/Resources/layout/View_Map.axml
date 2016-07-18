@@ -9,9 +9,8 @@
         android:layout_height="match_parent"
         android:name="com.google.android.gms.maps.MapFragment"
         local:MvxBind="Click GoPopup" />
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/myLayout"
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:padding="10dp">
@@ -23,25 +22,33 @@
             android:id="@+id/FiltreBtn"
             local:MvxBind="Click GoPopupFiltre"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal" />
-        <Button
-            android:background="@drawable/button_menu"
+            android:layout_height="38dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <ImageButton
+            android:background="#00FFFFFF"
+            android:src="@drawable/button_menu"
             android:id="@+id/menuBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left" />
-        <Button
-            android:background="@drawable/button_refresh"
-            android:id="@+id/refreshBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right" />
-        <Button
-            android:background="@drawable/button_search"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true" />
+        <ImageButton
+            android:background="#00FFFFFF"
+            android:src="@drawable/button_search"
             android:id="@+id/searchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right" />
-    </FrameLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" />
+        <ImageButton
+            android:background="#00FFFFFF"
+            android:src="@mipmap/group_5"
+            android:id="@+id/locateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:layout_above="@id/searchBtn"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
 </FrameLayout>

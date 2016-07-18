@@ -6,35 +6,51 @@ using Android.Widget;
 using MvvmCross.Droid.Views;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Gms.Location;
+using Android.Gms.Common.Apis;
+using Android.Locations;
 using static Android.Gms.Maps.GoogleMap;
 using Android.Support.V4.Content;
 using Android;
 using Android.Content.PM;
-using Android.Locations;
-using PocAlim.ViewModels;
-using PocAlim.Services;
 using Android.Gms.Common;
 using Android.Views;
 using Android.Net;
+using Android.OS;
+using Android.Runtime;
+using Android.Util;
+
+using PocAlim.ViewModels;
+using PocAlim.Services;
+using System.Threading.Tasks;
 
 namespace PocAlim.Droid.View
 {
 
-    /**Classe de création de la map
+    /**Classe de crÃ©ation de la map
      * et ajout des markers**/
     [Activity(Label = "Map", Theme = "@style/MyTheme.NoTitle")]
-	public class MyMapView : MvxActivity, IOnMapReadyCallback, Android.Gms.Maps.GoogleMap.IOnMyLocationButtonClickListener,IOnInfoWindowClickListener
+	public class MyMapView : MvxActivity, IOnMapReadyCallback ,IOnInfoWindowClickListener, GoogleApiClient.IConnectionCallbacks,
+		GoogleApiClient.IOnConnectionFailedListener
     {
 
 		public static readonly int InstallGooglePlayServicesId = 1000;
 		private bool _isGooglePlayServicesInstalled;
 
+		private ImageButton moveToMyLocationButton;
+		public bool needToSetCamera = true;
+
+		private GoogleApiClient client;
+		protected LocationRequest request;
+		private LocationSettingsRequest settingsRequest;
         private GoogleMap _gMap;
+
 		//marqueur temporaire pour la boucle d'ajout
         private Marker _marker;
-		//Point cliqué par l'utilisateur
+		//Point cliquÃ© par l'utilisateur
 		private Marker _pointClick;
 
+<<<<<<< HEAD
 		//pour le gps checking
         LocationManager _locationManager;
 
@@ -42,6 +58,11 @@ namespace PocAlim.Droid.View
 		{
 
 		}
+=======
+        //private LocationManager _locationManager;
+		private double lat = 0;
+		private double lng = 0;
+>>>>>>> a29012c... commit de Aurel
 
 		//Specification du ViewModel
 		public new FillingListOfMyPOIViewModel ViewModel
@@ -49,28 +70,25 @@ namespace PocAlim.Droid.View
             get { return (FillingListOfMyPOIViewModel)base.ViewModel; }
             set { base.ViewModel = value; }
         }
-        //Une fois le ViewModel chargé on genere la vue
+        //Une fois le ViewModel chargÃ© on genere la vue
         protected override void OnViewModelSet()
         {
             base.OnViewModelSet();
 
-			//On vérifie si les Google Play Services sont dispo
+			//On vÃ©rifie si les Google Play Services sont dispo
 			_isGooglePlayServicesInstalled = TestIfGooglePlayServicesIsInstalled();
-			// Si OUI, on charge le Layout de manière classique
+			// Si OUI, on charge le Layout de maniÃ¨re classique
 			if (_isGooglePlayServicesInstalled) {
 				SetContentView (Resource.Layout.View_Map);
-
-				//On vérifie la connexion internet
-				bool test = isNetworkConnected();
-				if (!test) {
-					Toast.MakeText(this, "La connexion internet est necessaire", ToastLength.Short).Show();
-				}
-
 
 				if (_gMap == null) {
 					FragmentManager.FindFragmentById<MapFragment> (Resource.Id.map).GetMapAsync (this);
 				}
-					
+
+				BuildGoogleApiClient();
+				CreateLocationRequest();
+				BuildLocationSettingsRequest();
+
 			}
 			//sinon on cache notre view pour laisser la proposition
 			//d'installation de google play services
@@ -79,41 +97,44 @@ namespace PocAlim.Droid.View
 				SetContentView(Resource.Layout.View_Map);
 				if (_gMap == null)
 					FragmentManager.FindFragmentById<MapFragment> (Resource.Id.map).GetMapAsync (this);
-				FrameLayout myLayout = (FrameLayout)FindViewById(Resource.Id.myLayout);
+				RelativeLayout myLayout = (RelativeLayout)FindViewById(Resource.Id.myLayout);
 				myLayout.Visibility = ViewStates.Invisible;
 			}
         }
 
-        public void OnMapReady(GoogleMap googleMap)
-        {
-            _gMap = googleMap;
+		public void OnMapReady(GoogleMap googleMap)
+		{
+			_gMap = googleMap;
+			_gMap.UiSettings.CompassEnabled = false;
 
-			//Autorisation et positionnement du boutton zoom
-            //_gMap.UiSettings.ZoomControlsEnabled = true;
+			//Listener sur click d'un marker
+			_gMap.MarkerClick += MapOnMarkerClick;
 
-            //Verification des permissions  de localisation
-            checkLocationPermission();
+			//Listener sur click de la map
+			_gMap.MapClick += MapOnMapClick;
 
-            //Listener sur click d'un marker
-            _gMap.MarkerClick += MapOnMarkerClick;
+			startGeoloc();
 
-            //Listener sur click de la map
-            _gMap.MapClick += MapOnMapClick;
-
-            //Position de départ de la camera
-            moveCameraStart();
-
-            //parcours de la liste de markers du ViewModel
-            //et ajout des markers à la map
-            addMarkers();
+			//si la connection internet n'est pas activÃ©e
+			if (!isNetworkConnected())
+			{
+				Toast.MakeText(this, "Une connexion internet est necessaire pour charger les etablissements", ToastLength.Short).Show();
+			}
+			//si la connection internet n'est pas activÃ©e
+			if (isNetworkConnected())
+			{
+				//parcours de la liste de markers du ViewModel
+				//et ajout des markers Ã  la map
+				addMarkers();
+			}
 
 			//infopopoupwindows custom
-			//_gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
+			_gMap.SetInfoWindowAdapter(new CustomMarkerPopupAdapter(LayoutInflater));
 			_gMap.SetOnInfoWindowClickListener(this);
 
         }
 
-		//verification de l'état de la connexion
+		//verification de l'Ã©tat de la connexion
 		private Boolean isNetworkConnected()
 		{
 			ConnectivityManager cm = (ConnectivityManager)GetSystemService(Context.ConnectivityService);
@@ -121,60 +142,156 @@ namespace PocAlim.Droid.View
 			return cm.ActiveNetworkInfo != null;
 		}
 
-        //Verification de l'autorisation de localisation
-        public void checkLocationPermission()
-        {
-            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation)
-                == (int)Permission.Granted)
-            {
-               /*
-                //Affichage du Bouton de localisation google
-                _gMap.MyLocationEnabled = true;
-                _gMap.SetOnMyLocationButtonClickListener(this);
-				*/
-            }
-            else
-            {
-                Toast.MakeText(this, "Location Permissions are required !", ToastLength.Short).Show();
-            }
+		//Verification de l'autorisation de localisation
+		public bool isLocationPermission()
+		{
+			if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) == (int)Permission.Granted)
+			{
+				return true;
+			}
+			else
+			{
+				//Toast.MakeText(this, "Location Permissions are required !", ToastLength.Long).Show();
+				return false;
+			}
+		}
 
-        }
+		//VÃ©rifie que le GPS est activÃ©
+		public bool isGPSActivate() 
+		{ 
+			LocationManager locMgr = GetSystemService(Context.LocationService) as LocationManager;
+			string Provider = LocationManager.GpsProvider;
 
-        //Listener du bouton de localisation google
-        bool Android.Gms.Maps.GoogleMap.IOnMyLocationButtonClickListener.OnMyLocationButtonClick()
-        {
-            bool _isGpsEnable = false;
-            _isGpsEnable=checkGPS();
-
-            if (_isGpsEnable)
-            {
-                //le gps est activé
-                //return false zoom sur la localisation
-                return false;
-            }
-            else
-            {
-                Toast.MakeText(this, String.Format("Veuillez Activer le GPS"), ToastLength.Short).Show();
-                return true;
-            }
-        }
-
-        //vérification de l'activation du GPS
-        public bool checkGPS()
-        {
-            _locationManager = GetSystemService(Context.LocationService) as LocationManager;
-
-            string provider = LocationManager.GpsProvider;
-
-            if (_locationManager.IsProviderEnabled(provider))
-            {
-                return true;
-            }
-            return false;
-        }
+			if (locMgr.IsProviderEnabled(Provider)) { return true; }
+			else { return false; }
+		}
       
+		public void MoveToMyLocation(object sender, EventArgs e)
+		{
+			moveCamera();
+		}
+
+		public async void openGPS(object sender, EventArgs e) 
+		{
+			await CheckLocationSettings();
+		}
+
+		protected void BuildGoogleApiClient()
+		{
+			Log.Info("Client", "Building GoogleApiClient");
+			client = new GoogleApiClient.Builder(this)
+				.AddConnectionCallbacks(this)
+				.AddOnConnectionFailedListener(this)
+				.AddApi(LocationServices.API)
+				.Build();
+		}
+
+		protected void CreateLocationRequest()
+		{
+			request = new LocationRequest();
+			request.SetInterval(10000);
+			request.SetFastestInterval(10000/2);
+			request.SetPriority(LocationRequest.PriorityHighAccuracy);
+		}
+
+		protected void BuildLocationSettingsRequest()
+		{
+			LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
+			builder.AddLocationRequest(request);
+			settingsRequest = builder.Build();
+		}
+
+		protected async Task CheckLocationSettings()
+		{
+			var result = await LocationServices.SettingsApi.CheckLocationSettingsAsync(client, settingsRequest);
+			await HandleResult(result);
+		}
+
+		public async Task HandleResult(LocationSettingsResult locationSettingsResult)
+		{
+			var status = locationSettingsResult.Status;
+			switch (status.StatusCode)
+			{
+				case CommonStatusCodes.ResolutionRequired:
+					Log.Info("Client", "Location settings are not satisfied. Show the user a dialog to" +
+					"upgrade location settings ");
+
+					try
+					{
+						status.StartResolutionForResult(this, 0x1);
+					}
+					catch (IntentSender.SendIntentException)
+					{
+						Log.Info("Client", "PendingIntent unable to execute request.");
+					}
+					break;
+				case LocationSettingsStatusCodes.SettingsChangeUnavailable:
+					Log.Info("Client", "Location settings are inadequate, and cannot be fixed here. Dialog " +
+					"not created.");
+					break;
+			}
+		}
+
+		protected override async void OnActivityResult(int requestCode, Result resultCode, Intent data)
+		{
+			switch (requestCode)
+			{
+				case 0x1:
+					switch (resultCode)
+					{
+						case Result.Ok:
+							Log.Info("Client", "User agreed to make required location settings changes.");
+							startGeoloc();
+							break;
+						case Result.Canceled:
+							Log.Info("Client", "User chose not to make required location settings changes.");
+							break;
+					}
+					break;
+			}
+		}
+
+		public void startGeoloc() 
+		{
+			//si on a les permissions de localisation et le gps activÃ©
+			if (isLocationPermission() && isGPSActivate())
+			{
+				//Affichage de la position de l'utilisateur
+				_gMap.MyLocationEnabled = true;
+				_gMap.UiSettings.MyLocationButtonEnabled = false;
+
+				//Listener sur les chagements de localisation
+				_gMap.MyLocationChange += (object sender, MyLocationChangeEventArgs e) =>
+				{
+					lat = e.Location.Latitude;
+					lng = e.Location.Longitude;
+
+					//Position de dÃ©part de la camera
+					if (needToSetCamera)
+					{
+						moveCamera();
+						needToSetCamera = false;
+					}
+				};
+
+				moveToMyLocationButton.SetImageResource(Resource.Mipmap.group_5);
+				//Listener sur le bouton de localisation
+				moveToMyLocationButton.Click += MoveToMyLocation;
+			}
+
+			//si on a pas les permissions de localisation ou le gps dÃ©sactivÃ©
+			if (!isLocationPermission() || !isGPSActivate())
+			{
+				//On change l'icone du bouton de gÃ©oloc
+				moveToMyLocationButton.SetImageResource(Resource.Mipmap.group_7);
+
+				moveToMyLocationButton.Click += openGPS;
+				Toast.MakeText(this, "GPS is not available. Does the device have location services enabled?", ToastLength.Long).Show();
+			}
+		}
+
 		//Clique map place un point
-        private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
+		private void MapOnMapClick(object sender, GoogleMap.MapClickEventArgs mapClickEventArgs)
         {
 			if (_gMap != null)
 			{
@@ -184,7 +301,9 @@ namespace PocAlim.Droid.View
 				MarkerOptions markerOpt1 = new MarkerOptions();
 				markerOpt1.SetPosition(new LatLng(mapClickEventArgs.Point.Latitude,mapClickEventArgs.Point.Longitude));
 				markerOpt1.SetTitle("Rechercher autour");
+				markerOpt1.SetIcon(BitmapDescriptorFactory.FromResource(Resource.Mipmap.pin_restauration));
 				_pointClick  = _gMap.AddMarker(markerOpt1);
+				_gMap.AnimateCamera(CameraUpdateFactory.NewLatLng(new LatLng(mapClickEventArgs.Point.Latitude, mapClickEventArgs.Point.Longitude)));
 
 				_pointClick.ShowInfoWindow();
 			}
@@ -195,33 +314,35 @@ namespace PocAlim.Droid.View
 		public void OnInfoWindowClick(Marker marker)
 		{
 			if (marker.Equals(_pointClick))
-			Toast.MakeText(this, "fonction à développer ", ToastLength.Short).Show();
+			Toast.MakeText(this, "fonction a developper ", ToastLength.Short).Show();
 
 		}
-	
-
 
         private void MapOnMarkerClick(object sender, GoogleMap.MarkerClickEventArgs markerClickEventArgs)
         {
             markerClickEventArgs.Handled = true;
             Marker marker = markerClickEventArgs.Marker;
 
-            //zoom avec animation sur le marker
-            // animateCameraOnMarker(marker);
+			//zoom avec animation sur le marker
+			// animateCameraOnMarker(marker);
 
 			//zoom sans animation sur le marker
-			_gMap.MoveCamera(CameraUpdateFactory.NewLatLng(marker.Position));
+			//_gMap.MoveCamera(CameraUpdateFactory.NewLatLng(marker.Position));
 
 			//affichage des infos
 			//marker.ShowInfoWindow();
-
-			StartActivity(typeof(InfoPopupView));
+			if (!marker.Equals(_pointClick)) 
+			{ 
+				_pointClick.ShowInfoWindow();
+				//StartActivity(typeof(InfoPopupView));
+			}
+			else { _pointClick.Remove(); }
 
 		}
 
         //zoom avec animation sur le marker
-        //cliqué avec un décallage pour
-        //laisser de la place à la infowindow
+        //cliquÃ© avec un dÃ©callage pour
+        //laisser de la place Ã  la infowindow
         public void animateCameraOnMarker(Marker marker)
         {
             double _latToZoom = marker.Position.Latitude;
@@ -230,10 +351,10 @@ namespace PocAlim.Droid.View
             _gMap.AnimateCamera(CameraUpdateFactory.NewLatLngZoom(new LatLng(_latToZoom,_lngToZoom), _gMap.CameraPosition.Zoom));
         }
 
-        //Position de départ de la camera
-        public void moveCameraStart()
+        //Positionnne la camera
+        public void moveCamera()
         {
-			LatLng location = new LatLng(ViewModel.MyPositionCoord.Lat,ViewModel.MyPositionCoord.Lng);
+			LatLng location = new LatLng(lat,lng);
                 CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
                 builder.Target(location);
                 builder.Zoom(14);
@@ -242,12 +363,12 @@ namespace PocAlim.Droid.View
 
             if (_gMap != null)
             {
-                _gMap.MoveCamera(cameraUpdate);
+                _gMap.AnimateCamera(cameraUpdate);
             }
-           
         }
+
         //parcours de la liste de markers du ViewModel
-        //et ajout des markers à la map
+        //et ajout des markers Ã  la map
         public void addMarkers()
         {
 			try{
@@ -319,25 +440,63 @@ namespace PocAlim.Droid.View
 			return false;
 		}
 
+		//Gestion du bouton back
 		public override void OnBackPressed()
 		{
 		}
+
 
 		protected override void OnResume()
 		{
 			base.OnResume();
 
-			//pour le cas où l'utilisateur revient sur l'appli
-			//directement après la MAJ des google play services
+			//pour le cas oÃ¹ l'utilisateur revient sur l'appli
+			//directement aprÃ¨s la MAJ des google play services
 			_isGooglePlayServicesInstalled = TestIfGooglePlayServicesIsInstalled();
 			if (_isGooglePlayServicesInstalled)
 			{
-				FrameLayout myLayout = (FrameLayout)FindViewById(Resource.Id.myLayout);
+				RelativeLayout myLayout = (RelativeLayout)FindViewById(Resource.Id.myLayout);
 				if (myLayout.Visibility == ViewStates.Invisible)
 					myLayout.Visibility = ViewStates.Visible;
 			}
+
+			moveToMyLocationButton = (ImageButton)FindViewById(Resource.Id.locateBtn);
 		}
 
+		protected override void OnStart()
+		{
+			base.OnStart();
+			client.Connect();
+		}
+
+		protected override void OnPause()
+		{
+			base.OnPause();
+		}
+
+		protected override void OnStop()
+		{
+			
+			base.OnStop();
+			client.Disconnect();
+		}
+
+
+		//MÃ©thodes de l'interface GoogleApiClient
+		public void OnConnected(Bundle connectionHint)
+		{
+			Log.Info("Client", "Connected to GoogleApiClient");
+		}
+
+		public void OnConnectionSuspended(int cause)
+		{
+			Log.Info("Client", "Connection suspended");
+		}
+
+		public void OnConnectionFailed(ConnectionResult result)
+		{
+			Log.Info("Client", "Connection failed: ConnectionResult.getErrorCode() = " + result.ErrorCode);
+		}
 	}
 
 }

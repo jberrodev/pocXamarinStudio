@@ -88,6 +88,34 @@
     <Reference Include="MvvmCross.Platform">
       <HintPath>..\packages\MvvmCross.Platform.4.2.0\lib\MonoAndroid\MvvmCross.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Location">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Location.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Location.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\portable-net45+win8+wpa81\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\monoandroid\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>..\packages\Google.Apis.Core.1.14.0\lib\portable-net45+sl50+netcore45+wpa81+wp8\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\packages\Zlib.Portable.Signed.1.11.0\lib\portable-net4+sl5+wp8+win8+wpa81+MonoTouch+MonoAndroid\Zlib.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis">
+      <HintPath>..\packages\Google.Apis.1.14.0\lib\portable-net45+sl50+netcore45+wpa81+wp8\Google.Apis.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PocAlim\PocAlim.csproj">
@@ -345,31 +373,59 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\button_search_normal.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\button_search_pressed.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\button_menu_close.png" />
-    <AndroidResource Include="Resources\mipmap-hdpi\button_menu_normal.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\button_refresh_normal.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\button_refresh_pressed.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\button_menu_close.png" />
-    <AndroidResource Include="Resources\mipmap-mdpi\button_menu_normal.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\button_refresh_normal.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\button_refresh_pressed.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\button_menu_close.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\button_menu_normal.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\button_refresh_normal.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\button_refresh_pressed.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\button_menu_close.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\button_menu_normal.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\button_refresh_normal.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\button_refresh_pressed.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\button_menu_close.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_menu_normal.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\button_refresh_normal.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\button_refresh_pressed.png" />
     <AndroidResource Include="Resources\drawable\button_search.xml" />
     <AndroidResource Include="Resources\drawable\button_refresh.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\bouton_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\bouton_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\bouton_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\bouton_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\bouton_menu_normal.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\pin_restauration.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\pin_restauration.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\pin_restauration.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\pin_restauration.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\pin_restauration.png" />
+    <AndroidResource Include="Resources\drawable\back_infowindow.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\group_5.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\group_7.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\group_5.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\group_7.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\group_5.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\group_7.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\group_5.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\group_5.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\group_7.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\group_7.png" />
+    <AndroidResource Include="Resources\layout\layout_splashscreen.axml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\logo.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\marianne.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\logo.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\marianne.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\logo.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\marianne.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\logo.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\marianne.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\logo.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\marianne.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <ItemGroup>
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\values\" />

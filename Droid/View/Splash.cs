@@ -15,13 +15,17 @@ using MvvmCross.Droid.Views;
 
 namespace PocAlim.Droid
 {
-    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, Icon = "@drawable/splash_logo")]
+	[Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, Icon="@drawable/splash_logo")]
     public class Splash : MvxSplashScreenActivity
     {
+<<<<<<< HEAD
       public Splash()
 		{
 
 		}
+=======
+		public Splash() : base(Resource.Layout.layout_splashscreen) { }
+>>>>>>> a29012c... commit de Aurel
     }
 
 }
