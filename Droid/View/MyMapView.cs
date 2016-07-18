@@ -51,9 +51,7 @@ namespace PocAlim.Droid.View
 		private Marker _pointClick;
 
 		//pour le gps checking
-        LocationManager _locationManager;
-
-        //private LocationManager _locationManager;
+        private LocationManager _locationManager;
 		private double lat = 0;
 		private double lng = 0;
 
@@ -268,6 +266,7 @@ namespace PocAlim.Droid.View
 				};
 
 				moveToMyLocationButton.SetImageResource(Resource.Mipmap.group_5);
+
 				//Listener sur le bouton de localisation
 				moveToMyLocationButton.Click += MoveToMyLocation;
 			}
@@ -275,6 +274,9 @@ namespace PocAlim.Droid.View
 			//si on a pas les permissions de localisation ou le gps désactivé
 			if (!isLocationPermission() || !isGPSActivate())
 			{
+				//on se positione par defaut
+				moveCameraDefault();
+
 				//On change l'icone du bouton de géoloc
 				moveToMyLocationButton.SetImageResource(Resource.Mipmap.group_7);
 
@@ -347,7 +349,7 @@ namespace PocAlim.Droid.View
         //Positionnne la camera
         public void moveCamera()
         {
-			LatLng location = new LatLng(lat,lng);
+				LatLng location = new LatLng(lat,lng);
                 CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
                 builder.Target(location);
                 builder.Zoom(14);
@@ -359,6 +361,22 @@ namespace PocAlim.Droid.View
                 _gMap.AnimateCamera(cameraUpdate);
             }
         }
+
+		//Positionnne la camera
+		public void moveCameraDefault()
+		{
+			LatLng location = new LatLng(48.853446, 2.348827);
+			CameraPosition.Builder builder = CameraPosition.InvokeBuilder();
+			builder.Target(location);
+			builder.Zoom(14);
+			CameraPosition cameraPosition = builder.Build();
+			CameraUpdate cameraUpdate = CameraUpdateFactory.NewCameraPosition(cameraPosition);
+
+			if (_gMap != null)
+			{
+				_gMap.AnimateCamera(cameraUpdate);
+			}
+		}
 
         //parcours de la liste de markers du ViewModel
         //et ajout des markers à la map

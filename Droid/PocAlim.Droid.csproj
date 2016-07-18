@@ -421,6 +421,12 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\marianne.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\logo.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\marianne.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\alimentation_on.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\alimentation_on.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\alimentation_on.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\alimentation_on.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\alimentation_on.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\charcuterie_on.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets" Condition="Exists('..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\build\Xamarin.GooglePlayServices.Basement.targets')" />
