@@ -50,19 +50,12 @@ namespace PocAlim.Droid.View
 		//Point cliqué par l'utilisateur
 		private Marker _pointClick;
 
-<<<<<<< HEAD
 		//pour le gps checking
         LocationManager _locationManager;
 
-		public MyMapView()
-		{
-
-		}
-=======
         //private LocationManager _locationManager;
 		private double lat = 0;
 		private double lng = 0;
->>>>>>> a29012c... commit de Aurel
 
 		//Specification du ViewModel
 		public new FillingListOfMyPOIViewModel ViewModel
